@@ -3,77 +3,155 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>나의 웹페이지</title>
+  <title>CORTIS 주훈 소개 페이지</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#home">UTF404</a>
+    <a class="logo" href="#home">CORTIS / JUHOON</a>
     <nav class="site-nav" aria-label="주요 메뉴">
-      <a href="#about">소개</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#contact">연락</a>
+      <a href="#group">그룹</a>
+      <a href="#members">멤버</a>
+      <a href="#juhoon">주훈</a>
+      <a href="#sources">출처</a>
     </nav>
   </header>
 
   <main>
     <section id="home" class="hero">
-      <p class="eyebrow">Personal Web Page</p>
-      <h1>안녕하세요. 나만의 웹페이지입니다.</h1>
-      <p class="hero-text">
-        이곳에 자기소개, 공부한 내용, 만든 프로젝트를 정리하면서 GitHub Pages로 웹 배포를 연습할 수 있습니다.
-      </p>
-      <div class="hero-actions">
-        <a class="button primary" href="#projects">프로젝트 보기</a>
-        <a class="button secondary" href="#contact">연락처 보기</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Color Outside The Lines</p>
+        <h1>코르티스 주훈</h1>
+        <p class="hero-text">
+          BIGHIT MUSIC의 보이그룹 CORTIS와 멤버 주훈을 한눈에 볼 수 있도록 정리한 팬 페이지입니다.
+          자유로운 창작과 자기표현을 중심에 둔 팀의 분위기를 담았습니다.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#juhoon">주훈 보기</a>
+          <a class="button secondary" href="#members">멤버 보기</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img
+          src="https://cdn.kpopping.com/idols/Juhoon/profile.jpg"
+          alt="CORTIS 멤버 주훈 프로필 사진"
+        >
+        <figcaption>Juhoon / 주훈</figcaption>
+      </figure>
+    </section>
+
+    <section id="group" class="section group-section">
+      <div class="section-heading">
+        <p class="eyebrow">Group</p>
+        <h2>CORTIS는 어떤 팀인가요?</h2>
+      </div>
+      <div class="split-layout">
+        <div>
+          <p>
+            CORTIS(코르티스)는 BIGHIT MUSIC에서 결성한 대한민국 보이그룹입니다.
+            그룹명은 <strong>Color Outside The Lines</strong>에서 가져온 이름으로,
+            정해진 선 밖에서 자유롭게 생각하고 표현한다는 이미지를 갖고 있습니다.
+          </p>
+          <ul class="fact-list">
+            <li><span>소속</span>BIGHIT MUSIC</li>
+            <li><span>데뷔</span>2025년 8월 18일</li>
+            <li><span>장르</span>K-pop, 힙합</li>
+            <li><span>대표곡</span>What You Want, Go!, FaSHioN</li>
+          </ul>
+        </div>
+        <figure class="group-photo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortis_at_TikTok_Awards_Korea.jpg/330px-Cortis_at_TikTok_Awards_Korea.jpg"
+            alt="TikTok Awards Korea에 참석한 CORTIS 단체 사진"
+          >
+          <figcaption>왼쪽부터 James, Seonghyeon, Juhoon, Keonho, Martin</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="members" class="section">
       <div class="section-heading">
-        <p class="eyebrow">About</p>
-        <h2>소개</h2>
+        <p class="eyebrow">Members</p>
+        <h2>멤버</h2>
       </div>
-      <p>
-        여기에 본인의 관심 분야, 공부 중인 기술, 목표를 적어보세요. 예를 들어 웹 개발, 로봇, 데이터 분석,
-        자동화 프로젝트처럼 앞으로 보여주고 싶은 내용을 자유롭게 정리할 수 있습니다.
-      </p>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Projects</p>
-        <h2>프로젝트</h2>
-      </div>
-      <div class="project-list">
-        <article class="project-card">
-          <h3>첫 번째 프로젝트</h3>
-          <p>프로젝트 설명을 여기에 작성하세요.</p>
+      <div class="member-grid">
+        <article class="member-card">
+          <p>James</p>
+          <span>제임스</span>
         </article>
-        <article class="project-card">
-          <h3>두 번째 프로젝트</h3>
-          <p>GitHub 링크나 결과 화면 설명을 추가하면 좋습니다.</p>
+        <article class="member-card active">
+          <p>Juhoon</p>
+          <span>주훈</span>
         </article>
-        <article class="project-card">
-          <h3>세 번째 프로젝트</h3>
-          <p>진행 중인 작업도 기록해두면 포트폴리오처럼 관리할 수 있습니다.</p>
+        <article class="member-card">
+          <p>Martin</p>
+          <span>마틴 / 리더</span>
+        </article>
+        <article class="member-card">
+          <p>Seonghyeon</p>
+          <span>성현</span>
+        </article>
+        <article class="member-card">
+          <p>Keonho</p>
+          <span>건호</span>
         </article>
       </div>
     </section>
 
-    <section id="contact" class="section contact-section">
+    <section id="juhoon" class="section juhoon-section">
       <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>연락</h2>
+        <p class="eyebrow">Focus</p>
+        <h2>주훈 프로필</h2>
       </div>
-      <p>아래 버튼을 누르면 이메일 주소 예시가 표시됩니다. 실제 이메일이나 GitHub 주소로 바꿔서 사용하세요.</p>
-      <button id="contactButton" class="button primary" type="button">연락처 확인</button>
-      <p id="contactMessage" class="contact-message" aria-live="polite"></p>
+      <div class="profile-panel">
+        <div class="profile-image-wrap">
+          <img
+            src="https://cdn.kpopping.com/idols/Juhoon/profile.jpg"
+            alt="주훈 프로필 이미지"
+          >
+        </div>
+        <div class="profile-content">
+          <p class="profile-kicker">Juhoon / 주훈 / Kim Juhoon</p>
+          <p>
+            주훈은 CORTIS의 멤버로, 2025년 8월 18일 팀과 함께 데뷔했습니다.
+            공개 프로필에 따르면 서울 출신이며, 이전에 아역 모델로 활동한 이력이 있습니다.
+            CORTIS 안에서는 보컬과 창작 참여가 돋보이는 멤버로 소개됩니다.
+          </p>
+          <div class="profile-stats">
+            <div>
+              <span>생일</span>
+              <strong>2008.01.03</strong>
+            </div>
+            <div>
+              <span>키</span>
+              <strong>175cm</strong>
+            </div>
+            <div>
+              <span>MBTI</span>
+              <strong>ISFP</strong>
+            </div>
+          </div>
+          <button id="detailButton" class="button primary" type="button">주훈 포인트 보기</button>
+          <p id="detailMessage" class="detail-message" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="section sources-section">
+      <div class="section-heading">
+        <p class="eyebrow">Sources</p>
+        <h2>참고한 공개 자료</h2>
+      </div>
+      <ul class="source-list">
+        <li><a href="https://en.wikipedia.org/wiki/Cortis" target="_blank" rel="noreferrer">CORTIS - Wikipedia</a></li>
+        <li><a href="https://kpopping.com/profiles/idol/Juhoon" target="_blank" rel="noreferrer">Juhoon profile - kpopping</a></li>
+        <li><a href="https://namu.wiki/w/CORTIS" target="_blank" rel="noreferrer">CORTIS - 나무위키</a></li>
+      </ul>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 UTF404. GitHub Pages로 관리하는 개인 웹페이지.</p>
+    <p>© 2026 CORTIS / JUHOON fan page. This is an unofficial page.</p>
   </footer>
 
   <script src="js/main.js"></script>
