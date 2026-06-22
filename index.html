@@ -74,27 +74,27 @@
         <p class="eyebrow">Members</p>
         <h2>멤버</h2>
       </div>
-      <div class="member-grid">
-        <article class="member-card">
+      <div class="member-grid" aria-label="CORTIS 멤버 선택">
+        <button class="member-card" type="button" data-member="james">
           <p>James</p>
           <span>제임스</span>
-        </article>
-        <article class="member-card active">
+        </button>
+        <button class="member-card active" type="button" data-member="juhoon" aria-pressed="true">
           <p>Juhoon</p>
           <span>주훈</span>
-        </article>
-        <article class="member-card">
+        </button>
+        <button class="member-card" type="button" data-member="martin">
           <p>Martin</p>
           <span>마틴 / 리더</span>
-        </article>
-        <article class="member-card">
+        </button>
+        <button class="member-card" type="button" data-member="seonghyeon">
           <p>Seonghyeon</p>
           <span>성현</span>
-        </article>
-        <article class="member-card">
+        </button>
+        <button class="member-card" type="button" data-member="keonho">
           <p>Keonho</p>
           <span>건호</span>
-        </article>
+        </button>
       </div>
     </section>
 
@@ -106,32 +106,33 @@
       <div class="profile-panel">
         <div class="profile-image-wrap">
           <img
+            id="profileImage"
             src="https://cdn.kpopping.com/idols/Juhoon/profile.jpg"
             alt="주훈 프로필 이미지"
           >
         </div>
         <div class="profile-content">
-          <p class="profile-kicker">Juhoon / 주훈 / Kim Juhoon</p>
-          <p>
+          <p id="profileKicker" class="profile-kicker">Juhoon / 주훈 / Kim Juhoon</p>
+          <p id="profileBio">
             주훈은 CORTIS의 멤버로, 2025년 8월 18일 팀과 함께 데뷔했습니다.
             공개 프로필에 따르면 서울 출신이며, 이전에 아역 모델로 활동한 이력이 있습니다.
             CORTIS 안에서는 보컬과 창작 참여가 돋보이는 멤버로 소개됩니다.
           </p>
           <div class="profile-stats">
             <div>
-              <span>생일</span>
-              <strong>2008.01.03</strong>
+              <span id="statOneLabel">생일</span>
+              <strong id="statOneValue">2008.01.03</strong>
             </div>
             <div>
-              <span>키</span>
-              <strong>175cm</strong>
+              <span id="statTwoLabel">출신</span>
+              <strong id="statTwoValue">서울</strong>
             </div>
             <div>
-              <span>MBTI</span>
-              <strong>ISFP</strong>
+              <span id="statThreeLabel">키워드</span>
+              <strong id="statThreeValue">Child model</strong>
             </div>
           </div>
-          <button id="detailButton" class="button primary" type="button">주훈 포인트 보기</button>
+          <button id="detailButton" class="button primary" type="button">포인트 보기</button>
           <p id="detailMessage" class="detail-message" aria-live="polite"></p>
         </div>
       </div>
@@ -144,6 +145,8 @@
       </div>
       <ul class="source-list">
         <li><a href="https://en.wikipedia.org/wiki/Cortis" target="_blank" rel="noreferrer">CORTIS - Wikipedia</a></li>
+        <li><a href="https://zh.wikipedia.org/wiki/CORTIS" target="_blank" rel="noreferrer">CORTIS member table - Chinese Wikipedia</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Martin_Edwards_Park" target="_blank" rel="noreferrer">Martin Edwards Park - Wikipedia</a></li>
         <li><a href="https://kpopping.com/profiles/idol/Juhoon" target="_blank" rel="noreferrer">Juhoon profile - kpopping</a></li>
         <li><a href="https://namu.wiki/w/CORTIS" target="_blank" rel="noreferrer">CORTIS - 나무위키</a></li>
       </ul>

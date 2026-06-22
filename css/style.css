@@ -250,11 +250,24 @@ figcaption {
 }
 
 .member-card {
+  display: block;
   min-height: 128px;
   padding: 18px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.member-card:hover,
+.member-card:focus-visible {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  outline: none;
 }
 
 .member-card.active {
