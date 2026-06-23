@@ -1,5 +1,6 @@
 const members = {
   james: {
+    title: "제임스 프로필",
     image: "https://cdn.kpopping.com/idols/James/profile.jpg",
     imageAlt: "CORTIS 멤버 James 프로필 이미지",
     kicker: "James / 제임스 / Chao Yu Fan",
@@ -12,6 +13,7 @@ const members = {
     detail: "제임스 포인트: Trainee A 이력, 안무 감각, ILLIT과 TXT 곡 작업 참여가 강점으로 언급됩니다.",
   },
   juhoon: {
+    title: "주훈 프로필",
     image: "https://cdn.kpopping.com/idols/Juhoon/profile.jpg",
     imageAlt: "CORTIS 멤버 주훈 프로필 이미지",
     kicker: "Juhoon / 주훈 / Kim Juhoon",
@@ -24,6 +26,7 @@ const members = {
     detail: "주훈 포인트: 아역 모델 이력, 감성적인 보컬, 자연스러운 카메라 표현력이 잘 어울리는 멤버입니다.",
   },
   martin: {
+    title: "마틴 프로필",
     image: "https://cdn.kpopping.com/idols/Martin/profile.jpg",
     imageAlt: "CORTIS 멤버 Martin 프로필 이미지",
     kicker: "Martin / 마틴 / Martin Edwards Park",
@@ -36,6 +39,7 @@ const members = {
     detail: "마틴 포인트: 팀 리더이면서 작사, 작곡, 프로듀싱 이력이 뚜렷한 창작형 멤버입니다.",
   },
   seonghyeon: {
+    title: "성현 프로필",
     image: "https://cdn.kpopping.com/idols/Seonghyeon/profile.jpg",
     imageAlt: "CORTIS 멤버 성현 프로필 이미지",
     kicker: "Seonghyeon / 성현 / Eom Seonghyeon",
@@ -48,6 +52,7 @@ const members = {
     detail: "성현 포인트: 무대에서의 에너지, 관객을 끌어들이는 분위기, 퍼포먼스 존재감이 중심입니다.",
   },
   keonho: {
+    title: "건호 프로필",
     image: "https://cdn.kpopping.com/idols/Keonho/profile.jpg",
     imageAlt: "CORTIS 멤버 건호 프로필 이미지",
     kicker: "Keonho / 건호 / Ahn Keonho",
@@ -62,6 +67,7 @@ const members = {
 };
 
 const memberButtons = document.querySelectorAll(".member-card");
+const profileTitle = document.querySelector("#profileTitle");
 const profileImage = document.querySelector("#profileImage");
 const profileKicker = document.querySelector("#profileKicker");
 const profileBio = document.querySelector("#profileBio");
@@ -80,6 +86,7 @@ function renderMember(memberId) {
   const member = members[memberId];
 
   selectedMember = memberId;
+  profileTitle.textContent = member.title;
   profileImage.src = member.image;
   profileImage.alt = member.imageAlt;
   profileKicker.textContent = member.kicker;
