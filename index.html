@@ -3,160 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CORTIS 주훈 소개 페이지</title>
+  <meta name="description" content="웹과 로봇을 연결하는 시스템 통합형 개발자 박준렬의 포트폴리오입니다.">
+  <title>박준렬 | Robotics Software Developer</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#home">CORTIS / JUHOON</a>
-    <nav class="site-nav" aria-label="주요 메뉴">
-      <a href="#group">그룹</a>
-      <a href="#members">멤버</a>
-      <a href="#juhoon">주훈</a>
-      <a href="#sources">출처</a>
+    <a class="logo" href="#home" aria-label="홈으로 이동">JUNRYEOL<span>.</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav">메뉴</button>
+    <nav id="siteNav" class="site-nav" aria-label="주요 메뉴">
+      <a href="#about">소개</a><a href="#skills">역량</a><a href="#projects">프로젝트</a><a href="#contact">연락</a>
+      <button class="theme-button" type="button" aria-label="색상 테마 변경">◐</button>
     </nav>
   </header>
-
   <main>
     <section id="home" class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Color Outside The Lines</p>
-        <h1>코르티스 주훈</h1>
-        <p class="hero-text">
-          BIGHIT MUSIC의 보이그룹 CORTIS와 멤버 주훈을 한눈에 볼 수 있도록 정리한 팬 페이지입니다.
-          자유로운 창작과 자기표현을 중심에 둔 팀의 분위기를 담았습니다.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#juhoon">주훈 보기</a>
-          <a class="button secondary" href="#members">멤버 보기</a>
-        </div>
+        <p class="eyebrow">Robotics software · System integration</p>
+        <h1>웹과 로봇을<br><span>하나의 시스템</span>으로<br>연결합니다.</h1>
+        <p class="hero-text">안녕하세요, 박준렬입니다. ROS2, FastAPI, PostgreSQL, PLC, 시뮬레이션과 센서 연동을 바탕으로 로봇 및 자동화 설비를 제어하고 모니터링하는 시스템을 개발합니다.</p>
+        <div class="hero-actions"><a class="button primary" href="#projects">프로젝트 보기</a><a class="button secondary" href="#contact">연락하기</a></div>
       </div>
-      <figure class="hero-photo">
-        <img
-          src="https://cdn.kpopping.com/idols/Juhoon/profile.jpg"
-          alt="CORTIS 멤버 주훈 프로필 사진"
-        >
-        <figcaption>Juhoon / 주훈</figcaption>
-      </figure>
+      <figure class="hero-visual profile-photo"><img src="2023_image.jpg" alt="박준렬 증명사진"><figcaption>박준렬 · Robotics Software Developer</figcaption></figure>
+      <a class="scroll-hint" href="#about">SCROLL ↓</a>
     </section>
-
-    <section id="group" class="section group-section">
-      <div class="section-heading">
-        <p class="eyebrow">Group</p>
-        <h2>CORTIS는 어떤 팀인가요?</h2>
-      </div>
-      <div class="split-layout">
-        <div>
-          <p>
-            CORTIS(코르티스)는 BIGHIT MUSIC에서 결성한 대한민국 보이그룹입니다.
-            그룹명은 <strong>Color Outside The Lines</strong>에서 가져온 이름으로,
-            정해진 선 밖에서 자유롭게 생각하고 표현한다는 이미지를 갖고 있습니다.
-          </p>
-          <ul class="fact-list">
-            <li><span>소속</span>BIGHIT MUSIC</li>
-            <li><span>데뷔</span>2025년 8월 18일</li>
-            <li><span>장르</span>K-pop, 힙합</li>
-            <li><span>대표곡</span>What You Want, Go!, FaSHioN</li>
-          </ul>
-        </div>
-        <figure class="group-photo">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortis_at_TikTok_Awards_Korea.jpg/330px-Cortis_at_TikTok_Awards_Korea.jpg"
-            alt="TikTok Awards Korea에 참석한 CORTIS 단체 사진"
-          >
-          <figcaption>왼쪽부터 James, Seonghyeon, Juhoon, Keonho, Martin</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="members" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Members</p>
-        <h2>멤버</h2>
-      </div>
-      <div class="member-grid" aria-label="CORTIS 멤버 선택">
-        <button class="member-card" type="button" data-member="james">
-          <p>James</p>
-          <span>제임스</span>
-        </button>
-        <button class="member-card active" type="button" data-member="juhoon" aria-pressed="true">
-          <p>Juhoon</p>
-          <span>주훈</span>
-        </button>
-        <button class="member-card" type="button" data-member="martin">
-          <p>Martin</p>
-          <span>마틴 / 리더</span>
-        </button>
-        <button class="member-card" type="button" data-member="seonghyeon">
-          <p>Seonghyeon</p>
-          <span>성현</span>
-        </button>
-        <button class="member-card" type="button" data-member="keonho">
-          <p>Keonho</p>
-          <span>건호</span>
-        </button>
-      </div>
-    </section>
-
-    <section id="juhoon" class="section juhoon-section">
-      <div class="section-heading">
-        <p class="eyebrow">Focus</p>
-        <h2 id="profileTitle">주훈 프로필</h2>
-      </div>
-      <div class="profile-panel">
-        <div class="profile-image-wrap">
-          <img
-            id="profileImage"
-            src="https://cdn.kpopping.com/idols/Juhoon/profile.jpg"
-            alt="주훈 프로필 이미지"
-          >
-        </div>
-        <div class="profile-content">
-          <p id="profileKicker" class="profile-kicker">Juhoon / 주훈 / Kim Juhoon</p>
-          <p id="profileBio">
-            주훈은 CORTIS의 멤버로, 2025년 8월 18일 팀과 함께 데뷔했습니다.
-            공개 프로필에 따르면 서울 출신이며, 이전에 아역 모델로 활동한 이력이 있습니다.
-            CORTIS 안에서는 보컬과 창작 참여가 돋보이는 멤버로 소개됩니다.
-          </p>
-          <div class="profile-stats">
-            <div>
-              <span id="statOneLabel">생일</span>
-              <strong id="statOneValue">2008.01.03</strong>
-            </div>
-            <div>
-              <span id="statTwoLabel">출신</span>
-              <strong id="statTwoValue">서울</strong>
-            </div>
-            <div>
-              <span id="statThreeLabel">키워드</span>
-              <strong id="statThreeValue">Child model</strong>
-            </div>
-          </div>
-          <button id="detailButton" class="button primary" type="button">포인트 보기</button>
-          <p id="detailMessage" class="detail-message" aria-live="polite"></p>
+    <section id="about" class="section about-section">
+      <div class="section-heading"><p class="section-number">01</p><div><p class="eyebrow">About me</p><h2>시스템 전체를 이해하는 개발자</h2></div></div>
+      <div class="about-grid">
+        <p class="lead-text">화면 구현을 넘어 로봇, 설비, 센서와 데이터가 실제로 연결되는 흐름을 설계합니다.</p>
+        <div class="about-copy">
+          <p>웹 프론트엔드에서 시작했지만 로봇 시스템 구조, 실시간 상태 반영, 센서·PLC·시뮬레이터 연계와 운영 화면 설계까지 경험 범위를 넓혀 왔습니다.</p>
+          <p>로봇 소프트웨어와 운영 화면을 연결하는 시스템 통합형 개발자를 지향합니다. 현장에서 바로 이해하고 사용할 수 있는 UI와 안정적인 데이터 흐름을 함께 고민합니다.</p>
+          <dl class="quick-info"><div><dt>Position</dt><dd>Robotics Software Engineer</dd></div><div><dt>Focus</dt><dd>Robot control · Monitoring</dd></div><div><dt>Strength</dt><dd>Web–Robot System Integration</dd></div></dl>
         </div>
       </div>
     </section>
-
-    <section id="sources" class="section sources-section">
-      <div class="section-heading">
-        <p class="eyebrow">Sources</p>
-        <h2>참고한 공개 자료</h2>
+    <section id="skills" class="section">
+      <div class="section-heading"><p class="section-number">02</p><div><p class="eyebrow">Core capabilities</p><h2>기술과 역량</h2></div></div>
+      <div class="skill-grid">
+        <article class="skill-card"><span>01</span><h3>Robot & Simulation</h3><p>로봇 모델과 동작 시나리오를 구성하고 실제 제어 연동 전 시뮬레이션으로 검증합니다.</p><ul><li>ROS2 · URDF / Xacro</li><li>Isaac Sim 5.0</li><li>Action Graph · State Machine</li></ul></article>
+        <article class="skill-card featured"><span>02</span><h3>Control & Monitoring</h3><p>로봇과 자동화 설비의 상태를 실시간으로 반영하는 제어·모니터링 시스템을 설계합니다.</p><ul><li>FastAPI · WebSocket</li><li>PostgreSQL · Firebase</li><li>PLC · RS232</li></ul></article>
+        <article class="skill-card"><span>03</span><h3>Sensor & Integration</h3><p>센서, 카메라, 장비와 웹 UI 사이에서 발생하는 연결 및 데이터 처리 문제를 해결합니다.</p><ul><li>RealSense · Orbbec · OAK-D</li><li>Python · Sensor SDK</li><li>STP · USD · Robot Assets</li></ul></article>
       </div>
-      <ul class="source-list">
-        <li><a href="https://en.wikipedia.org/wiki/Cortis" target="_blank" rel="noreferrer">CORTIS - Wikipedia</a></li>
-        <li><a href="https://zh.wikipedia.org/wiki/CORTIS" target="_blank" rel="noreferrer">CORTIS member table - Chinese Wikipedia</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Martin_Edwards_Park" target="_blank" rel="noreferrer">Martin Edwards Park - Wikipedia</a></li>
-        <li><a href="https://kpopping.com/profiles/idol/Juhoon" target="_blank" rel="noreferrer">Juhoon profile - kpopping</a></li>
-        <li><a href="https://namu.wiki/w/CORTIS" target="_blank" rel="noreferrer">CORTIS - 나무위키</a></li>
-      </ul>
     </section>
+    <section id="projects" class="section">
+      <div class="section-heading"><p class="section-number">03</p><div><p class="eyebrow">Selected work</p><h2>주요 프로젝트</h2></div></div>
+      <div class="project-list">
+        <article class="project-card"><div class="project-visual project-one"><span>01</span></div><div class="project-copy"><p class="project-type">Robot control · Real-time monitoring</p><h3>로봇 제어 및 모니터링 웹 시스템</h3><p>ROS2, FastAPI, PostgreSQL을 연동해 작업 지시·현황·경고와 로봇 및 PLC 상태를 웹에서 실시간 확인하는 운영 화면을 설계했습니다. WebSocket 상태 반영, API와 DB 저장 구조, 현장 작업 흐름을 고려한 UI를 구현했습니다.</p><ul class="tags"><li>ROS2</li><li>FastAPI</li><li>PostgreSQL</li><li>WebSocket</li><li>PLC</li></ul></div></article>
+        <article class="project-card reverse"><div class="project-visual project-two"><span>02</span></div><div class="project-copy"><p class="project-type">Simulation · Pick-and-place</p><h3>Isaac Sim 로봇 작업 셀 검증</h3><p>Fanuc 계열 로봇, SR-6iA, CRX-30iA 모델로 Pick-and-Place 작업 셀을 구성했습니다. 그리퍼, 충돌·강체, 컨베이어, Action Graph와 standalone Python 환경을 디버깅하고 ROS2 제어 및 상태 머신 흐름을 검증했습니다.</p><ul class="tags"><li>Isaac Sim 5.0</li><li>ROS2</li><li>Python</li><li>Action Graph</li></ul></div></article>
+        <article class="project-card"><div class="project-visual project-three"><span>03</span></div><div class="project-copy"><p class="project-type">3D visualization · Robot model</p><h3>URDF 로봇 제어 및 웹 시각화</h3><p>3-DOF PUMA 타입 로봇을 URDF로 구성하고 joint state를 웹에서 조작·확인하는 시스템을 개발했습니다. 실시간 관절 상태와 외부 움직임을 운영 화면에 연결해 로봇 모델, 상태 데이터, 웹 UI를 통합했습니다.</p><ul class="tags"><li>URDF</li><li>Joint State</li><li>3D Viewer</li><li>Web UI</li></ul></div></article>
+        <article class="project-card reverse"><div class="project-visual project-four"><span>04</span></div><div class="project-copy"><p class="project-type">Smart factory · PLC integration</p><h3>PLC 설비 상태 모니터링</h3><p>LS ELECTRIC XGK 계열 PLC를 기준으로 연결·동작 상태와 센서값을 웹에 표시하는 구조를 검토했습니다. Python, FastAPI, DB 연동을 전제로 설비 대시보드와 세부 패널을 설계하고 이력 관리 확장성을 고려했습니다.</p><ul class="tags"><li>PLC</li><li>FastAPI</li><li>Python</li><li>Database</li></ul></div></article>
+        <article class="project-card"><div class="project-visual project-five"><span>05</span></div><div class="project-copy"><p class="project-type">Monitoring service · Web application</p><h3>요양시설 낙상 감지 모니터링</h3><p>시니어 등록·조회·상세 정보와 역할별 화면을 분리하고 Firebase Realtime Database 및 인증 구조를 고려한 웹 화면을 구성했습니다. 게시판, 문의, CCTV 모니터링 등 운영 서비스형 UI를 경험했습니다.</p><ul class="tags"><li>Firebase</li><li>Realtime DB</li><li>Authentication</li><li>Monitoring UI</li></ul></div></article>
+      </div>
+    </section>
+    <section class="section process-section">
+      <div class="section-heading"><p class="section-number">04</p><div><p class="eyebrow">Additional experience</p><h2>함께 보여줄 수 있는 역량</h2></div></div>
+      <ol class="process-list">
+        <li><span>01</span><div><h3>센서·카메라</h3><p>RealSense, Orbbec, OAK-D 설정과 ROS2 연동 문제를 디버깅했습니다.</p></div></li>
+        <li><span>02</span><div><h3>장비 통신</h3><p>RS232 계량 장비의 포트, baudrate와 수집 데이터를 다뤘습니다.</p></div></li>
+        <li><span>03</span><div><h3>모델·패키징</h3><p>URDF/Xacro, frame, mesh, package path와 자산 변환 문제를 해결했습니다.</p></div></li>
+        <li><span>04</span><div><h3>문서화</h3><p>아키텍처, FlowChart, 실험 결과와 기술 내용을 전달 가능한 형태로 정리합니다.</p></div></li>
+      </ol>
+    </section>
+    <section id="contact" class="contact-section"><p class="eyebrow">Let's build connected systems</p><h2>로봇과 현장을 연결하는<br>소프트웨어를 만듭니다.</h2><a class="contact-mail" href="https://github.com/utf-404" target="_blank" rel="noreferrer">GitHub에서 프로젝트 보기 ↗</a><div class="social-links"><a href="https://github.com/utf-404" target="_blank" rel="noreferrer">GitHub</a><a href="#home">Portfolio</a></div></section>
   </main>
-
-  <footer class="site-footer">
-    <p>© 2026 CORTIS / JUHOON fan page. This is an unofficial page.</p>
-  </footer>
-
+  <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS & JavaScript.</p><a href="#home">맨 위로 ↑</a></footer>
   <script src="js/main.js"></script>
 </body>
 </html>
