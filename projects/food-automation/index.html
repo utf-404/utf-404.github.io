@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="형상과 놓인 자세가 일정하지 않은 음식 원물을 다루는 Isaac Sim 로봇 자동화 셀 프로젝트입니다.">
+  <title>비정형 음식 원물 자동화 | 박준렬</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/project.css">
+</head>
+<body id="top">
+  <header class="site-header">
+    <a class="logo" href="/" aria-label="홈으로 이동">JUNRYEOL<span>.</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav">메뉴</button>
+    <nav id="siteNav" class="site-nav" aria-label="주요 메뉴">
+      <a href="/#about">소개</a><a href="/#skills">역량</a><a href="/projects/" aria-current="page">프로젝트</a><a href="/#other-work">기타 경험</a><a href="/#contact">연락</a>
+      <button class="theme-button" type="button" aria-label="색상 테마 변경">◐</button>
+    </nav>
+  </header>
+  <main>
+    <section class="detail-hero">
+      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>음식 원물 자동화</span></p>
+      <div class="detail-hero-grid">
+        <div>
+          <p class="eyebrow">In progress · Isaac Sim · Food automation</p>
+          <h1>비정형 음식 원물 자동화 시스템</h1>
+          <p class="detail-lead">크기, 형상과 놓인 자세가 일정하지 않은 음식 원물을 안정적으로 취급하기 위해 실제 설비 적용 전 공정 흐름과 간섭을 시뮬레이션에서 검토하고 있습니다.</p>
+          <dl class="project-meta">
+            <div><dt>Status</dt><dd>In progress</dd></div>
+            <div><dt>Target</dt><dd>Irregular food objects</dd></div>
+            <div><dt>Engine</dt><dd>Isaac Sim 5.0</dd></div>
+            <div><dt>Focus</dt><dd>Grip · Collision · Cell</dd></div>
+          </dl>
+        </div>
+        <figure class="detail-media">
+          <video controls muted playsinline preload="metadata" poster="/img/video/food-robot-poster.png" aria-label="비정형 음식 원물 자동화 작업 셀 시뮬레이션 영상">
+            <source src="/img/video/Food_robot.mp4" type="video/mp4">
+            브라우저가 영상을 지원하지 않습니다. <a href="/img/video/Food_robot.mp4">영상 파일 열기</a>
+          </video>
+          <figcaption>원물 공급부터 파지, 이송과 배출까지 구성한 자동화 작업 셀</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="project-toc" aria-label="프로젝트 상세 메뉴">
+      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">검증 항목</a><a href="#results">진행 결과</a>
+    </nav>
+
+    <section id="overview" class="detail-section">
+      <div class="detail-section-heading"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>문제 정의</h3><p>음식 원물은 크기와 외형이 일정하지 않고 놓인 자세도 달라, 정해진 한 가지 접근 경로와 파지 조건만으로 안정적인 공정을 구성하기 어렵습니다.</p></article>
+        <article class="detail-card"><h3>진행 목표</h3><p>원물 공급, 로봇 접근, 파지, 이송과 배출을 하나의 작업 셀로 구성하고 실제 설비 제작 전에 동작 가능성과 설비 간 간섭을 검토합니다.</p></article>
+      </div>
+    </section>
+
+    <section id="role" class="detail-section">
+      <div class="detail-section-heading"><span>02</span><h2>담당 범위</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>공정 구성</h3><ul><li>원물 공급부터 배출까지 작업 순서 설계</li><li>로봇, 컨베이어와 주변 설비 배치</li><li>로봇 접근 및 이송 위치 검토</li></ul></article>
+        <article class="detail-card"><h3>물리 조건 검증</h3><ul><li>대상별 충돌 형상과 강체 특성 조정</li><li>그리퍼 접촉 및 파지 조건 검토</li><li>로봇과 주변 설비 사이의 간섭 반복 확인</li></ul></article>
+      </div>
+    </section>
+
+    <section id="architecture" class="detail-section">
+      <div class="detail-section-heading"><span>03</span><h2>공정 아키텍처</h2></div>
+      <ol class="architecture-flow" aria-label="음식 원물 자동화 공정 흐름">
+        <li><strong>Raw Material</strong><span>형상 · 크기 · 자세 변화</span></li>
+        <li><strong>Supply</strong><span>원물 공급 · 위치 진입</span></li>
+        <li><strong>Robot Approach</strong><span>접근 경로 · 간섭 확인</span></li>
+        <li><strong>Grip &amp; Transfer</strong><span>접촉 · 파지 · 이송</span></li>
+        <li><strong>Discharge</strong><span>배출 · 상태 전이</span></li>
+      </ol>
+      <p class="architecture-note">진행 중인 프로젝트이므로 향후 비전 센서 입력, 대상 인식과 파지점 산출 모듈을 추가할 수 있도록 공정 단계를 분리했습니다.</p>
+    </section>
+
+    <section id="implementation" class="detail-section">
+      <div class="detail-section-heading"><span>04</span><h2>핵심 구현</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>대상별 물리 속성</h3><p>원물마다 다른 외형과 접촉 특성을 표현할 수 있도록 충돌 형상, 강체와 그리퍼 접촉 조건을 개별적으로 조정합니다.</p></article>
+        <article class="detail-card"><h3>상태 전이</h3><p>공급, 접근, 파지, 이송과 배출 단계가 설비 및 로봇 상태에 맞춰 이어지도록 작업 흐름을 구성합니다.</p></article>
+        <article class="detail-card"><h3>설비 간 간섭</h3><p>로봇 동작 범위와 컨베이어, 주변 설비 배치를 함께 확인해 접근과 이송 과정의 충돌 가능성을 검토합니다.</p></article>
+        <article class="detail-card"><h3>반복 가능한 셀 구조</h3><p>대상 물체가 달라져도 동일한 공정 단계에서 조건만 조정해 비교할 수 있는 시뮬레이션 구조를 구체화하고 있습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="detail-section">
+      <div class="detail-section-heading"><span>05</span><h2>현재 검증 항목</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>파지 안정성</h3><p>원물의 크기와 자세가 달라질 때 접촉 지점과 파지 자세가 어떻게 달라지는지 반복 검토하고 있습니다.</p></article>
+        <article class="detail-card"><h3>공정 간섭</h3><p>로봇 접근 및 이송 경로가 컨베이어와 주변 설비의 작업 범위를 침범하지 않는지 확인하고 있습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="results" class="detail-section">
+      <div class="detail-section-heading"><span>06</span><h2>진행 결과와 다음 단계</h2></div>
+      <div class="detail-callout">
+        <h3>공정 전체를 먼저 구성하고 대상별 파지 조건을 구체화하고 있습니다.</h3>
+        <p>완료 시에는 대상 원물 종류, 자세별 반복 테스트, 파지 성공 기준, 실패 유형과 설계 변경 전후의 결과를 이 섹션에 추가할 예정입니다.</p>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="다른 프로젝트">
+      <a href="/projects/puma-robot/"><span>Previous project</span>← PUMA 3-DOF</a>
+      <a href="/projects/"><span>Project archive</span>전체 프로젝트 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#top">맨 위로 ↑</a></footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

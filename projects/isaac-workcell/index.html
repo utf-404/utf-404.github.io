@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="다양한 형상과 물성을 고려해 파지와 이송 동작을 검증한 Isaac Sim 로봇 작업 셀 프로젝트입니다.">
+  <title>Isaac Sim 로봇 작업 셀 | 박준렬</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/project.css">
+</head>
+<body id="top">
+  <header class="site-header">
+    <a class="logo" href="/" aria-label="홈으로 이동">JUNRYEOL<span>.</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav">메뉴</button>
+    <nav id="siteNav" class="site-nav" aria-label="주요 메뉴">
+      <a href="/#about">소개</a><a href="/#skills">역량</a><a href="/projects/" aria-current="page">프로젝트</a><a href="/#other-work">기타 경험</a><a href="/#contact">연락</a>
+      <button class="theme-button" type="button" aria-label="색상 테마 변경">◐</button>
+    </nav>
+  </header>
+  <main>
+    <section class="detail-hero">
+      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>Isaac Sim 작업 셀</span></p>
+      <div class="detail-hero-grid">
+        <div>
+          <p class="eyebrow">Core · Isaac Sim · Robotic manipulation</p>
+          <h1>다양한 형상에 대응하는 로봇 작업 셀</h1>
+          <p class="detail-lead">정형 박스뿐 아니라 타이어, 음식과 비정형 물체까지 대상으로 삼아 형상과 물성에 따른 파지·접촉·이송 조건을 시뮬레이션에서 검증했습니다.</p>
+          <dl class="project-meta">
+            <div><dt>Role</dt><dd>Simulation · Scenario</dd></div>
+            <div><dt>Robot</dt><dd>SR-6iA · CRX-30iA</dd></div>
+            <div><dt>Engine</dt><dd>Isaac Sim 5.0</dd></div>
+            <div><dt>Control</dt><dd>Action Graph · Python · ROS2</dd></div>
+          </dl>
+        </div>
+        <figure class="detail-media">
+          <video controls muted playsinline preload="metadata" poster="/img/video/isaac-sim-workcell-poster.png" aria-label="Isaac Sim 로봇 작업 셀 시뮬레이션 영상">
+            <source src="/img/video/isaac-sim-workcell.mp4" type="video/mp4">
+            브라우저가 영상을 지원하지 않습니다. <a href="/img/video/isaac-sim-workcell.mp4">영상 파일 열기</a>
+          </video>
+          <figcaption>Isaac Sim에서 구성한 파지·이송 작업 셀 시뮬레이션</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="project-toc" aria-label="프로젝트 상세 메뉴">
+      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">결과</a>
+    </nav>
+
+    <section id="overview" class="detail-section">
+      <div class="detail-section-heading"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>문제 정의</h3><p>정형화된 박스를 기준으로 한 동일한 파지 조건만으로는 원형·중공 구조나 외형이 일정하지 않은 물체를 안정적으로 다루기 어렵습니다.</p></article>
+        <article class="detail-card"><h3>검증 목표</h3><p>실제 설비를 구성하기 전에 물체별 충돌 형상, 강체 특성, 그리퍼 접촉과 로봇 이동 경로를 조정하며 작업 가능성을 검토했습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="role" class="detail-section">
+      <div class="detail-section-heading"><span>02</span><h2>담당 범위</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>작업 셀 구성</h3><ul><li>로봇, 컨베이어, 그리퍼와 대상 물체 배치</li><li>STP·USD 기반 로봇 및 설비 자산 검토</li><li>충돌 형상과 Rigid Body 속성 조정</li></ul></article>
+        <article class="detail-card"><h3>동작 시나리오</h3><ul><li>컨베이어 공급부터 Pick-and-Place까지 순서 구성</li><li>Action Graph와 standalone Python 상태 전이 구현</li><li>ROS2 제어 흐름 연결 및 반복 동작 점검</li></ul></article>
+      </div>
+    </section>
+
+    <section id="architecture" class="detail-section">
+      <div class="detail-section-heading"><span>03</span><h2>시뮬레이션 아키텍처</h2></div>
+      <ol class="architecture-flow" aria-label="로봇 작업 셀 시뮬레이션 처리 흐름">
+        <li><strong>Robot Assets</strong><span>로봇 · 그리퍼 · 컨베이어</span></li>
+        <li><strong>Physics Scene</strong><span>강체 · 충돌 · 접촉 조건</span></li>
+        <li><strong>State Control</strong><span>Action Graph · Python</span></li>
+        <li><strong>Manipulation</strong><span>접근 · 파지 · 이송 · 배치</span></li>
+        <li><strong>ROS2 Flow</strong><span>제어 연결 · 상태 점검</span></li>
+      </ol>
+      <p class="architecture-note">물체 형상별로 Physics Scene의 충돌 범위와 접촉 조건을 조정하고, 동일한 상태 제어 흐름에서 동작을 비교하는 구조입니다.</p>
+    </section>
+
+    <section id="implementation" class="detail-section">
+      <div class="detail-section-heading"><span>04</span><h2>핵심 구현</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>Tire</h3><p>원형·중공 구조에서 접촉 지점과 파지 자세가 안정적으로 유지되는지 검토했습니다.</p></article>
+        <article class="detail-card"><h3>Food</h3><p>종류와 취급 조건이 다른 식품을 대상으로 공급과 이송 공정 시나리오를 구성했습니다.</p></article>
+        <article class="detail-card"><h3>Irregular Object</h3><p>외형이 일정하지 않은 대상의 충돌 범위와 파지 동작을 반복적으로 조정했습니다.</p></article>
+        <article class="detail-card"><h3>State Machine</h3><p>대기, 접근, 파지, 이송과 배치 단계가 순서대로 전환되도록 동작 흐름을 구성했습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="detail-section">
+      <div class="detail-section-heading"><span>05</span><h2>문제 해결 관점</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>형상별 접촉 차이</h3><p>대상 물체의 외형과 중심이 달라 동일한 그리퍼 설정을 그대로 적용하기 어려웠습니다. 물체별 충돌 형상과 접촉 조건을 분리해 조정했습니다.</p></article>
+        <article class="detail-card"><h3>동작과 물리 조건의 연결</h3><p>상태 전이 순서만 맞아도 접촉과 강체 설정이 부정확하면 이송이 불안정해질 수 있어 동작 로직과 Physics 설정을 함께 검증했습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="results" class="detail-section">
+      <div class="detail-section-heading"><span>06</span><h2>결과와 다음 검증</h2></div>
+      <div class="detail-callout">
+        <h3>한 가지 물체가 아닌 다양한 형상을 기준으로 작업 셀을 검토했습니다.</h3>
+        <p>다음 단계에서는 형상별 반복 횟수, 파지 성공 기준, 실패 유형과 조정 전후 비교값을 추가해 시뮬레이션 결과를 수치로 보여줄 예정입니다.</p>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="다른 프로젝트">
+      <a href="/projects/robot-dashboard/"><span>Previous project</span>← 로봇 제어·모니터링</a>
+      <a href="/projects/puma-robot/"><span>Next project</span>PUMA 3-DOF →</a>
+    </nav>
+  </main>
+  <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#top">맨 위로 ↑</a></footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

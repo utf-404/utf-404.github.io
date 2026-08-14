@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="URDF/Xacro 로봇 모델과 ROS2 관절 제어, RViz, 웹 브리지를 연결한 PUMA 3-DOF 프로젝트입니다.">
+  <title>PUMA 3-DOF 로봇 제어 시스템 | 박준렬</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/project.css">
+</head>
+<body id="top">
+  <header class="site-header">
+    <a class="logo" href="/" aria-label="홈으로 이동">JUNRYEOL<span>.</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav">메뉴</button>
+    <nav id="siteNav" class="site-nav" aria-label="주요 메뉴">
+      <a href="/#about">소개</a><a href="/#skills">역량</a><a href="/projects/" aria-current="page">프로젝트</a><a href="/#other-work">기타 경험</a><a href="/#contact">연락</a>
+      <button class="theme-button" type="button" aria-label="색상 테마 변경">◐</button>
+    </nav>
+  </header>
+  <main>
+    <section class="detail-hero">
+      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>PUMA 3-DOF</span></p>
+      <div class="detail-hero-grid">
+        <div>
+          <p class="eyebrow">Core · ROS2 · Robot model</p>
+          <h1>3-DOF PUMA 로봇 제어 시스템</h1>
+          <p class="detail-lead">로봇 모델링부터 관절 명령과 상태, RViz 시각화와 웹 UI까지 ROS2 기반 제어 흐름을 하나의 실행 구조로 연결했습니다.</p>
+          <dl class="project-meta">
+            <div><dt>Platform</dt><dd>Ubuntu 22.04 · ROS2 Humble</dd></div>
+            <div><dt>Model</dt><dd>URDF · Xacro</dd></div>
+            <div><dt>Interface</dt><dd>Topic · WebSocket</dd></div>
+            <div><dt>Visualization</dt><dd>RViz2 · Web UI</dd></div>
+          </dl>
+          <div class="project-actions"><a class="button primary" href="https://github.com/utf-404/3DOF-Puma_Robot" target="_blank" rel="noreferrer">GitHub Repository ↗</a></div>
+        </div>
+        <figure class="detail-media">
+          <img src="/img/puma_img.png" alt="관절 제어 화면과 RViz 로봇 모델을 표시하는 PUMA 3-DOF 시스템">
+          <figcaption>웹 관절 제어와 RViz 로봇 상태 시각화</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="project-toc" aria-label="프로젝트 상세 메뉴">
+      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">결과</a>
+    </nav>
+
+    <section id="overview" class="detail-section">
+      <div class="detail-section-heading"><span>01</span><h2>프로젝트 개요</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>목표</h3><p>ROS2에서 로봇 모델을 시각화하는 단계에 그치지 않고, 웹에서 입력한 관절 명령이 제어 노드와 RViz 상태까지 이어지는 전체 흐름을 구성했습니다.</p></article>
+        <article class="detail-card"><h3>실행 구조</h3><p>하나의 launch 파일로 robot_state_publisher, 관절 컨트롤러, 웹 브리지, 정적 TF와 RViz2가 함께 실행되도록 패키지를 구성했습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="role" class="detail-section">
+      <div class="detail-section-heading"><span>02</span><h2>담당 범위</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>로봇 모델</h3><ul><li>3-DOF PUMA 타입 링크와 관절 구조 작성</li><li>URDF/Xacro 분리 및 mesh·frame 경로 구성</li><li>관절 범위와 world–base_link TF 설정</li></ul></article>
+        <article class="detail-card"><h3>제어와 웹 연동</h3><ul><li>관절 명령 및 상태 토픽 연결</li><li>웹 명령과 상태 로그용 WebSocket 구성</li><li>수동·랜덤 모션 및 현재 관절값 UI 구현</li></ul></article>
+      </div>
+    </section>
+
+    <section id="architecture" class="detail-section">
+      <div class="detail-section-heading"><span>03</span><h2>시스템 아키텍처</h2></div>
+      <ol class="architecture-flow" aria-label="웹 UI에서 PUMA 로봇 시각화로 이어지는 제어 흐름">
+        <li><strong>Web UI</strong><span>관절 목표값 · 모션 제어</span></li>
+        <li><strong>Web Bridge</strong><span>HTTP · WebSocket</span></li>
+        <li><strong>ROS2 Topics</strong><span>/joint_commands · /joint_states</span></li>
+        <li><strong>PUMA Controller</strong><span>범위 검증 · 상태 발행</span></li>
+        <li><strong>RViz2</strong><span>Robot State 시각화</span></li>
+      </ol>
+      <p class="architecture-note">명령은 `/joint_commands`, 현재 상태는 `/joint_states`를 사용하며, 웹 상태와 로그는 별도 WebSocket 경로로 전달합니다.</p>
+    </section>
+
+    <section id="implementation" class="detail-section">
+      <div class="detail-section-heading"><span>04</span><h2>핵심 구현</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>관절 명령 검증</h3><p>세 관절의 목표값 개수와 형식을 검사하고, 허용 범위를 벗어난 값은 관절 제한값 안으로 보정하도록 구성했습니다.</p></article>
+        <article class="detail-card"><h3>실시간 상태 표시</h3><p>ROS2에서 발행되는 현재 관절값을 웹 UI와 RViz에 반영해 명령과 실제 상태 흐름을 함께 확인할 수 있습니다.</p></article>
+        <article class="detail-card"><h3>통합 실행</h3><p>필요한 노드와 웹 서버를 개별 실행하지 않아도 launch 파일 하나로 전체 시스템을 시작할 수 있도록 구성했습니다.</p></article>
+        <article class="detail-card"><h3>동작 모드</h3><p>슬라이더 수동 제어, 제한 범위 내 랜덤 명령, 반복 모션 시작·정지 기능으로 제어 흐름을 점검할 수 있습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="detail-section">
+      <div class="detail-section-heading"><span>05</span><h2>문제 해결 관점</h2></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>모델 경로와 프레임</h3><p>URDF/Xacro의 mesh 경로와 frame 연결이 어긋나면 RViz에서 모델이 누락되거나 잘못 배치되므로 ROS2 package path와 TF 계층을 함께 점검했습니다.</p></article>
+        <article class="detail-card"><h3>웹 입력의 안전한 전달</h3><p>웹에서 잘못된 개수나 형식의 명령이 들어오는 경우를 거부하고, 관절 제한을 적용해 제어 노드가 유효한 값만 처리하도록 구성했습니다.</p></article>
+      </div>
+    </section>
+
+    <section id="results" class="detail-section">
+      <div class="detail-section-heading"><span>06</span><h2>결과와 다음 검증</h2></div>
+      <div class="detail-callout">
+        <h3>Robot model–ROS2 control–Web UI를 하나의 실행 흐름으로 완성했습니다.</h3>
+        <p>저장소에는 요구사항, 실행 방법, ROS 인터페이스와 테스트 명령이 정리되어 있습니다. 다음 단계에서는 자동 테스트 범위와 명령·상태 지연 측정 결과를 상세히 추가할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <nav class="project-pagination" aria-label="다른 프로젝트">
+      <a href="/projects/isaac-workcell/"><span>Previous project</span>← Isaac Sim 작업 셀</a>
+      <a href="/projects/food-automation/"><span>Next project</span>음식 원물 자동화 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#top">맨 위로 ↑</a></footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>

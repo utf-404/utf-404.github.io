@@ -4,6 +4,8 @@
 @media(max-width:480px){main{width:min(100% - 28px,1180px)}.hero{min-height:auto}.hero-actions{flex-direction:column}.button{width:100%}.section-heading{gap:14px}.process-list{grid-template-columns:1fr}.process-list li,.process-list li:nth-child(3){border-left:1px solid var(--line)}.site-footer{flex-direction:column}.contact-section{padding:90px 0}.social-links{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 
+.site-nav a[aria-current="page"]{color:var(--accent)}
+
 /* Portfolio profile and additional project variations */
 .profile-photo{overflow:hidden;margin:0;background:var(--panel);border:2px solid var(--text);box-shadow:14px 14px 0 var(--lime)}
 .profile-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top}
