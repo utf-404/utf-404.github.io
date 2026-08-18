@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="웹과 로봇을 연결하는 시스템 통합형 개발자 박준렬의 포트폴리오입니다.">
+  <meta name="description" content="ROS2, 산업용 장비 통신과 Isaac Sim 검증 경험을 갖춘 로보틱스 소프트웨어 개발자 박준렬의 포트폴리오입니다.">
   <title>박준렬 | Robotics Software Developer</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -20,88 +20,99 @@
     <section id="home" class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Robotics software · System integration</p>
-        <h1>웹과 로봇을 연결해<br><span>하나의 시스템으로</span><br>완성합니다.</h1>
-        <p class="hero-text">안녕하세요, 박준렬입니다. ROS2, FastAPI, PostgreSQL, PLC, 시뮬레이션과 센서 연동을 바탕으로 로봇 및 자동화 설비를 제어하고 모니터링하는 시스템을 개발합니다.</p>
+        <h1>장비와 로봇의 데이터를<br><span>검증 가능한 흐름으로</span><br>연결합니다.</h1>
+        <p class="hero-text">안녕하세요, 박준렬입니다. ROS2, 산업용 장비 통신, Isaac Sim과 RGB-D 센서 경험을 바탕으로 로봇 셀의 데이터 흐름을 설계하고 물리·통신 문제를 재현 가능한 방식으로 해결합니다.</p>
         <div class="hero-actions"><a class="button primary" href="/projects/">프로젝트 보기</a><a class="button secondary" href="#contact">연락하기</a></div>
       </div>
       <figure class="hero-visual profile-photo"><img src="/img/profile.jpg" alt="로보틱스 소프트웨어 개발자 박준렬의 프로필 사진"><figcaption>박준렬 · Robotics Software Developer</figcaption></figure>
       <a class="scroll-hint" href="#about">SCROLL ↓</a>
     </section>
+
     <section id="about" class="section about-section">
-      <div class="section-heading"><p class="section-number">01</p><div><p class="eyebrow">About me</p><h2>시스템 전체를 이해하는 개발자</h2></div></div>
+      <div class="section-heading"><p class="section-number">01</p><div><p class="eyebrow">About me</p><h2>경계에서 생기는 문제를 해결합니다</h2></div></div>
       <div class="about-grid">
-        <p class="lead-text">화면 구현을 넘어 로봇, 설비, 센서와 데이터가 실제로 연결되는 흐름을 설계합니다.</p>
+        <p class="lead-text">센서, PLC, 로봇과 운영 화면 사이에서 데이터가 끊기거나 다르게 해석되는 문제를 코드로 좁혀 갑니다.</p>
         <div class="about-copy">
-          <p>ROS2 기반 로봇 제어와 시뮬레이션을 중심으로, 실시간 상태 반영부터 센서·PLC·데이터베이스 연계 및 운영 화면 설계까지 로봇 시스템 전반의 경험을 쌓아 왔습니다.</p>
-          <p>로봇 소프트웨어와 운영 화면을 연결하는 시스템 통합형 개발자를 지향합니다. 현장에서 바로 이해하고 사용할 수 있는 UI와 안정적인 데이터 흐름을 함께 고민합니다.</p>
-          <dl class="quick-info"><dt>Position</dt><dd>Robotics Software Engineer</dd><dt>Focus</dt><dd>Robot control · Monitoring</dd><dt>Strength</dt><dd>Web–Robot System Integration</dd></dl>
+          <p>장비 매뉴얼의 바이트 포맷을 파서로 옮기고, 서로 다른 ROS2·UDP·HTTP 메시지를 검증하며, 운영자가 이해할 수 있는 이벤트와 상태로 정규화해 왔습니다.</p>
+          <p>시뮬레이션에서는 보기 좋은 동작보다 충돌, 마찰, 타이밍과 실패 조건을 먼저 확인합니다. 난수 시드, headless 실행과 결과 판정을 추가해 같은 조건을 다시 검증할 수 있는 구조를 지향합니다.</p>
+          <dl class="quick-info"><dt>Position</dt><dd>Robotics Software Engineer</dd><dt>Focus</dt><dd>Integration · Simulation Validation</dd><dt>Strength</dt><dd>Robot–Device–Web Integration</dd></dl>
         </div>
       </div>
     </section>
+
     <section id="skills" class="section">
       <div class="section-heading"><p class="section-number">02</p><div><p class="eyebrow">Core capabilities</p><h2>기술과 역량</h2></div></div>
       <div class="skill-grid">
-        <article class="skill-card" tabindex="0"><span>01</span><h3>Robot &amp; Simulation</h3><p>로봇 모델과 동작 시나리오를 구성하고 실제 제어 연동 전 시뮬레이션으로 검증합니다.</p><ul><li>ROS2 · URDF / Xacro</li><li>Isaac Sim 5.0</li><li>Action Graph · State Machine</li></ul></article>
-        <article class="skill-card" tabindex="0"><span>02</span><h3>Control &amp; Monitoring</h3><p>로봇과 자동화 설비의 상태를 실시간으로 반영하는 제어·모니터링 시스템을 설계합니다.</p><ul><li>FastAPI · WebSocket</li><li>PostgreSQL · Firebase</li><li>PLC · RS232</li></ul></article>
-        <article class="skill-card" tabindex="0"><span>03</span><h3>Sensor &amp; Integration</h3><p>센서, 카메라, 장비와 웹 UI 사이에서 발생하는 연결 및 데이터 처리 문제를 해결합니다.</p><ul><li>RealSense · Orbbec · OAK-D</li><li>Python · Sensor SDK</li><li>STP · USD · Robot Assets</li></ul></article>
+        <article class="skill-card" tabindex="0"><span>01</span><h3>Robot &amp; Simulation</h3><p>작업 셀의 상태 흐름과 물리 조건을 구성하고 반복 가능한 시뮬레이션으로 동작을 검증합니다.</p><ul><li>ROS2 · URDF / Xacro</li><li>Isaac Sim 5.0 · PhysX</li><li>State Machine · Headless Test</li></ul></article>
+        <article class="skill-card" tabindex="0"><span>02</span><h3>Industrial Integration</h3><p>산업용 장비의 원시 데이터를 검증하고 로봇·설비가 공유할 수 있는 인터페이스로 변환합니다.</p><ul><li>PLC · RS-232</li><li>UDP · TCP · HTTP</li><li>Protocol Parsing · Event Logging</li></ul></article>
+        <article class="skill-card" tabindex="0"><span>03</span><h3>Sensor &amp; 3D Vision</h3><p>RGB-D 센서 스트림과 포인트클라우드를 처리해 모니터링과 3차원 정합 파이프라인으로 연결합니다.</p><ul><li>RealSense · Orbbec</li><li>PointCloud2 · Open3D</li><li>YOLO · Sensor Streaming</li></ul></article>
       </div>
     </section>
+
     <section id="projects" class="section">
-      <div class="section-heading"><p class="section-number">03</p><div><p class="eyebrow">Selected work</p><h2>핵심 프로젝트</h2></div></div>
-      <p class="section-intro">로봇 제어, 시뮬레이션, 시스템 통합 역량을 직접 보여주는 작업을 중심으로 구성했습니다.</p>
+      <div class="section-heading"><p class="section-number">03</p><div><p class="eyebrow">Selected engineering work</p><h2>핵심 프로젝트</h2></div></div>
+      <p class="section-intro">사용 기술의 수보다 제가 맡은 경계, 해결한 실패 조건과 확인 가능한 결과가 분명한 작업을 선별했습니다.</p>
       <div class="project-list">
         <article class="project-card">
           <figure class="project-media">
-            <img src="/img/r-project.png" alt="출고 정보, PLC와 로봇 연결 상태, 작업 현황과 로봇 상태를 표시하는 실시간 운영 대시보드" loading="lazy">
-            <figcaption><span>01</span> 로봇·PLC 실시간 운영 대시보드</figcaption>
+            <img src="/img/integration-architecture.svg" alt="RS-232 계량기, PLC와 AMR 데이터를 ROS2 및 운영 화면으로 연결하는 시스템 아키텍처" loading="lazy">
+            <figcaption><span>01</span> 계량·PLC·AMR 통합 운영 모듈</figcaption>
           </figure>
-          <div class="project-copy"><p class="project-type">Flagship · Robot control · Real-time monitoring</p><h3>로봇 제어 및 모니터링 웹 시스템</h3><p>ROS2, FastAPI, PostgreSQL을 연동해 작업 지시·현황·경고와 로봇 및 PLC 상태를 웹에서 실시간 확인하는 운영 화면을 설계했습니다. WebSocket 상태 반영, API와 DB 저장 구조, 현장 작업 흐름을 고려한 UI를 구현했습니다.</p><ul class="tags"><li>ROS2</li><li>FastAPI</li><li>PostgreSQL</li><li>WebSocket</li><li>PLC</li></ul><div class="project-links"><a href="/projects/robot-dashboard/">상세 보기 →</a></div></div>
+          <div class="project-copy">
+            <p class="project-type">Flagship · Industrial integration · ROS2</p>
+            <h3>로봇 셀 계량·설비 통합 운영 시스템</h3>
+            <p>서로 다른 형식으로 들어오는 저울, PLC와 AMR 데이터를 검증하고 ROS2·UDP·HTTP 인터페이스와 운영 화면으로 연결했습니다. 단순 수신보다 잘못된 프레임과 중복 이벤트가 작업 이력으로 남지 않도록 경계 조건을 설계했습니다.</p>
+            <div class="scenario-list"><div><strong>Protocol</strong><span>CAS 22바이트 프레임·상태 비트·분할 수신 처리</span></div><div><strong>Event</strong><span>상승 에지, 지연 샘플링과 조합 이벤트 중복 억제</span></div><div><strong>Interface</strong><span>IF_RN_102–104 메시지 검증과 ROS2 서비스 연결</span></div></div>
+            <ul class="tags"><li>ROS2 Humble</li><li>Python</li><li>PLC</li><li>RS-232</li><li>UDP / HTTP</li></ul>
+            <div class="project-links"><a href="/projects/robot-dashboard/">상세 보기 →</a></div>
+          </div>
         </article>
+
         <article class="project-card reverse isaac-project">
           <figure class="project-media">
-            <video controls muted playsinline preload="metadata" poster="/img/video/isaac-sim-workcell-poster.png" aria-label="Isaac Sim 로봇 작업 셀 시뮬레이션 영상">
-              <source src="/img/video/isaac-sim-workcell.mp4" type="video/mp4">
-              브라우저가 영상을 지원하지 않습니다. <a href="/img/video/isaac-sim-workcell.mp4">영상 파일 열기</a>
+            <video controls muted playsinline preload="metadata" poster="/img/video/food-robot-poster.png" aria-label="Isaac Sim 비정형 원물 이중 파지와 컨베이어 이송 영상">
+              <source src="/img/video/Food_robot.mp4" type="video/mp4">
+              브라우저가 영상을 지원하지 않습니다. <a href="/img/video/Food_robot.mp4">영상 파일 열기</a>
             </video>
-            <figcaption><span>02</span> Isaac Sim 작업 셀 시뮬레이션</figcaption>
+            <figcaption><span>02</span> 물리 기반 비동기 컨베이어 셀</figcaption>
           </figure>
-          <div class="project-copy"><p class="project-type">Core · Isaac Sim · Robotic manipulation</p><h3>다양한 형상에 대응하는 로봇 작업 셀</h3><p>Fanuc 계열 로봇과 SR-6iA, CRX-30iA 모델을 활용해 정형화된 박스뿐 아니라 타이어, 음식, 비정형 물체를 다루는 작업 시나리오를 구성했습니다. 물체마다 다른 형상과 물성, 접촉 조건을 고려해 그리퍼·충돌·강체 설정을 조정하고 컨베이어부터 이송 위치까지의 동작 흐름을 검증했습니다.</p><div class="scenario-list"><div><strong>Tire</strong><span>원형·중공 구조의 접촉과 안정적인 파지 자세 검토</span></div><div><strong>Food</strong><span>종류와 취급 조건이 다른 식품의 이송 공정 시나리오 구성</span></div><div><strong>Irregular</strong><span>일정하지 않은 외형의 충돌 범위와 파지 동작 반복 검증</span></div></div><p>Action Graph와 standalone Python 환경에서 상태 전이와 Pick-and-Place 순서를 구현하고, ROS2 제어 흐름까지 연결해 시뮬레이션 동작을 점검했습니다.</p><ul class="tags"><li>Isaac Sim 5.0</li><li>ROS2</li><li>Python</li><li>Action Graph</li><li>Rigid Body</li></ul><div class="project-links"><a href="/projects/isaac-workcell/">상세 보기 →</a></div></div>
+          <div class="project-copy">
+            <p class="project-type">Core · Isaac Sim · Physics validation</p>
+            <h3>비정형 원물 이중 파지·비동기 이송</h3>
+            <p>두 개의 원물을 파지·배치하고 소형 컨베이어에서 WAITE, MEMORY, EGV로 이송하는 작업 셀을 구현했습니다. 좌표를 강제로 이동시키지 않고 충돌, 중력, Surface Velocity와 마찰로 공정 흐름을 검증했습니다.</p>
+            <div class="scenario-list"><div><strong>Physics</strong><span>얇은 원물의 충돌면 통과를 줄이기 위한 120Hz 실행</span></div><div><strong>Pipeline</strong><span>하류 이송 중 다음 쌍을 처리하는 독립 상태 추적</span></div><div><strong>Timing</strong><span>120→20프레임 단축, 15프레임 실패 조건 비교</span></div></div>
+            <ul class="tags"><li>Isaac Sim 5.0</li><li>Python</li><li>PhysX</li><li>State Machine</li><li>Headless</li></ul>
+            <div class="project-links"><a href="/projects/isaac-workcell/">상세 보기 →</a></div>
+          </div>
         </article>
+
         <article class="project-card">
           <figure class="project-media">
-            <img src="/img/puma_img.png" alt="관절 제어 화면과 3D 로봇 모델을 함께 표시하는 PUMA 3-DOF 웹 제어 시스템" loading="lazy">
-            <figcaption><span>03</span> PUMA 3-DOF 웹 제어 시스템</figcaption>
+            <img src="/img/pointcloud-pipeline.svg" alt="TF 적용, RANSAC, ICP와 포즈 그래프 최적화로 이어지는 포인트클라우드 정합 파이프라인" loading="lazy">
+            <figcaption><span>03</span> 멀티뷰 포인트클라우드 정합</figcaption>
           </figure>
-          <div class="project-copy"><p class="project-type">Core · ROS2 · Robot model</p><h3>3-DOF PUMA 로봇 제어 시스템</h3><p>3-DOF PUMA 타입 로봇을 URDF/Xacro로 구성하고 RViz 시각화, ROS2 관절 제어 노드, 상태 로깅과 웹 브리지를 연결했습니다. 로봇 모델부터 joint command·state와 웹 UI까지 하나의 흐름으로 구성했습니다.</p><ul class="tags"><li>ROS2 Humble</li><li>URDF / Xacro</li><li>RViz</li><li>Joint State</li><li>Web Bridge</li></ul><div class="project-links"><a href="/projects/puma-robot/">상세 보기 →</a><a href="https://github.com/utf-404/3DOF-Puma_Robot" target="_blank" rel="noreferrer">GitHub Repository ↗</a></div></div>
+          <div class="project-copy">
+            <p class="project-type">Core · 3D perception · Open3D</p>
+            <h3>포인트클라우드 정합·병합 파이프라인</h3>
+            <p>여러 촬영 위치의 PCD와 카메라 TF를 공통 좌표계로 변환하고, 초기 정합부터 미세 보정과 전역 최적화까지 한 번에 실행하는 파이프라인을 구현했습니다.</p>
+            <div class="scenario-list"><div><strong>Coarse</strong><span>Voxel·normal·FPFH 전처리와 RANSAC 초기 정합</span></div><div><strong>Refine</strong><span>Point-to-plane ICP, 실패 시 Point-to-point 폴백</span></div><div><strong>Verify</strong><span>페어별 fitness·inlier RMSE와 병합 PLY 출력</span></div></div>
+            <ul class="tags"><li>Python</li><li>Open3D</li><li>TF</li><li>RANSAC</li><li>ICP</li></ul>
+            <div class="project-links"><a href="/projects/pointcloud-registration/">상세 보기 →</a></div>
+          </div>
         </article>
       </div>
     </section>
-    <section id="sub-projects" class="section subproject-section">
-      <div class="section-heading"><p class="section-number">04</p><div><p class="eyebrow">New project · In progress</p><h2>비정형 음식 원물 자동화</h2></div></div>
-      <p class="section-intro">Isaac Sim에서 실제 공정의 동작과 간섭을 먼저 검증하며 새롭게 진행하고 있는 로봇 자동화 프로젝트입니다.</p>
-      <article class="subproject-card">
-        <figure class="subproject-media">
-          <video controls muted playsinline preload="metadata" poster="/img/video/food-robot-poster.png" aria-label="Isaac Sim 비정형 음식 원물 자동화 시뮬레이션 영상">
-            <source src="/img/video/Food_robot.mp4" type="video/mp4">
-            브라우저가 영상을 지원하지 않습니다. <a href="/img/video/Food_robot.mp4">영상 파일 열기</a>
-          </video>
-          <figcaption><span>FOOD · ISAAC SIM</span> 비정형 원물 자동화 작업 셀</figcaption>
-        </figure>
-        <div class="subproject-copy"><p class="project-type">In progress · Isaac Sim · Food automation</p><h3>비정형 음식 원물 자동화 시스템</h3><p>크기와 형상, 놓인 자세가 일정하지 않은 음식 원물을 안정적으로 취급하기 위한 로봇 자동화 셀을 진행하고 있습니다. Isaac Sim에서 원물 공급, 로봇 접근, 파지, 이송, 배출로 이어지는 공정 흐름을 구성하고 실제 설비 적용 전 동작 가능성을 검토합니다.</p><p>대상별 충돌 형상과 강체 특성, 그리퍼 접촉 조건을 조정하고 로봇·컨베이어·주변 설비 사이의 간섭과 상태 전이를 반복 검증해 비정형 원물에도 대응할 수 있는 공정 구조를 구체화하고 있습니다.</p><ul class="tags"><li>Isaac Sim 5.0</li><li>Food Automation</li><li>Irregular Objects</li><li>Robot Cell</li><li>Collision</li></ul><div class="project-links"><a href="/projects/food-automation/">상세 보기 →</a></div></div>
-      </article>
-    </section>
+
     <section id="other-work" class="section supporting-section">
-      <div class="section-heading"><p class="section-number">05</p><div><p class="eyebrow">Supporting work</p><h2>실험·연동 경험</h2></div></div>
-      <p class="section-intro">독립 프로젝트보다는 범위가 작지만, 실제 시스템을 연결하고 문제를 해결하는 과정에서 쌓은 경험입니다.</p>
+      <div class="section-heading"><p class="section-number">04</p><div><p class="eyebrow">Supporting work</p><h2>기반·연동 경험</h2></div></div>
+      <p class="section-intro">핵심 프로젝트를 뒷받침하는 ROS2 패키징, 센서 스트리밍과 모델링 경험입니다.</p>
       <div class="supporting-grid">
-        <article class="supporting-card"><span>01</span><p class="supporting-type">PLC · RS232 · Data acquisition</p><h3>PLC·RS232 설비 데이터 모니터링</h3><p>LS ELECTRIC XGK 계열 PLC의 연결·동작 상태 및 센서값과 RS232 계량 장비의 시리얼 데이터를 함께 수집하는 구조를 검토했습니다. 포트와 baudrate를 설정해 읽은 장비 데이터를 웹 대시보드와 이력 관리에 활용할 수 있는 형태로 구성했습니다.</p></article>
-        <article class="supporting-card"><span>02</span><p class="supporting-type">Sensor · ROS2</p><h3>센서·카메라 연동</h3><p>RealSense, Orbbec, OAK-D의 SDK 설정과 ROS2 연결 과정에서 발생한 장치 인식 및 데이터 연동 문제를 디버깅했습니다.</p></article>
-        <article class="supporting-card"><span>03</span><p class="supporting-type">Computer vision · Mobile monitoring</p><h3>요양시설 낙상 감지 모니터링</h3><p>낙상 감지 결과를 관리자와 보호자가 확인할 수 있도록 역할별 Android 화면과 시니어 정보, CCTV 모니터링 및 알림 흐름을 구현했습니다. Firebase 인증과 Realtime Database로 사용자 정보와 감지 결과를 연동했습니다.</p><div class="supporting-links"><a href="https://github.com/utf-404/App_Project" target="_blank" rel="noreferrer">Android App ↗</a><a href="https://github.com/utf-404/Capstone_Design_2024" target="_blank" rel="noreferrer">System ↗</a></div></article>
-        <article class="supporting-card"><span>04</span><p class="supporting-type">Embedded · TCP/IP</p><h3>라즈베리파이 네트워크 AI 체스</h3><p>라즈베리파이 2대 사이의 TCP 통신과 Pygame UI, Minimax 기반 체스 로직을 연결하고 데이터 손실 문제를 개선했습니다.</p><a class="supporting-link" href="https://github.com/utf-404/AI-Chess_Game_Project" target="_blank" rel="noreferrer">GitHub Repository ↗</a></article>
-        <article class="supporting-card"><span>05</span><p class="supporting-type">Robot assets</p><h3>모델·패키징 문제 해결</h3><p>URDF/Xacro의 frame과 mesh 경로, ROS2 package path, STP·USD 자산 변환 과정의 문제를 정리하고 해결했습니다.</p></article>
-        <article class="supporting-card"><span>06</span><p class="supporting-type">Documentation</p><h3>기술 문서화</h3><p>시스템 아키텍처, FlowChart, 실험 결과와 트러블슈팅 과정을 다른 구성원이 이해할 수 있는 형태로 정리했습니다.</p></article>
+        <article class="supporting-card"><span>01</span><p class="supporting-type">ROS2 · WebSocket · Validation</p><h3>PUMA 관절 명령 시각화</h3><p>URDF/Xacro 모델, 관절 명령 검증, ROS2 토픽과 FastAPI WebSocket을 연결했습니다. 실제 액추에이터 제어가 아닌 명령·상태 인터페이스 검증용 데모이며 입력 검증 5개 테스트 케이스를 포함합니다.</p><div class="supporting-links"><a href="/projects/puma-robot/">상세 보기 →</a><a href="https://github.com/utf-404/3DOF-Puma_Robot" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        <article class="supporting-card"><span>02</span><p class="supporting-type">RGB-D · YOLO · Network streaming</p><h3>이종 카메라 추론·모니터링</h3><p>RealSense와 Orbbec의 color/depth 스트림, YOLO ROI 검출·세그멘테이션 결과를 TCP로 전달하고 웹에서 FPS, 대역폭과 마지막 프레임 지연을 확인하는 도구를 구현했습니다.</p></article>
+        <article class="supporting-card"><span>03</span><p class="supporting-type">Robot assets · Linux · Field setup</p><h3>로봇 모델·장치 환경 구성</h3><p>URDF/Xacro frame과 mesh 경로, STP·USD 자산 변환, 카메라 SDK와 Jetson 멀티포트 시리얼 드라이버 문제를 정리하고 재현 가능한 설치·점검 절차로 문서화했습니다.</p></article>
       </div>
     </section>
+
     <section id="contact" class="contact-section"><p class="eyebrow">Let's build connected systems</p><h2>로봇과 현장을 연결하는<br>소프트웨어를 만듭니다.</h2><a class="contact-mail" href="mailto:qkrwnsfuf123@gmail.com">qkrwnsfuf123@gmail.com ↗</a><div class="social-links"><a href="mailto:qkrwnsfuf123@gmail.com">Email</a><a href="https://github.com/utf-404" target="_blank" rel="noreferrer">GitHub</a><a href="/">Portfolio</a></div></section>
   </main>
   <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#home">맨 위로 ↑</a></footer>

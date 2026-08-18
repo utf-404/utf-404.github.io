@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="다양한 형상과 물성을 고려해 파지와 이송 동작을 검증한 Isaac Sim 로봇 작업 셀 프로젝트입니다.">
-  <title>Isaac Sim 로봇 작업 셀 | 박준렬</title>
+  <meta name="description" content="Isaac Sim에서 비정형 원물을 이중 파지하고 물리 기반 비동기 컨베이어로 이송한 작업 셀 프로젝트입니다.">
+  <title>비정형 원물 이중 파지·비동기 이송 | 박준렬</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/project.css">
 </head>
@@ -19,90 +19,92 @@
   </header>
   <main>
     <section class="detail-hero">
-      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>Isaac Sim 작업 셀</span></p>
+      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>비정형 원물 이송</span></p>
       <div class="detail-hero-grid">
         <div>
-          <p class="eyebrow">Core · Isaac Sim · Robotic manipulation</p>
-          <h1>다양한 형상에 대응하는 로봇 작업 셀</h1>
-          <p class="detail-lead">정형 박스뿐 아니라 타이어, 음식과 비정형 물체까지 대상으로 삼아 형상과 물성에 따른 파지·접촉·이송 조건을 시뮬레이션에서 검증했습니다.</p>
+          <p class="eyebrow">Core · Isaac Sim · Physics validation</p>
+          <h1>비정형 원물 이중 파지·비동기 이송</h1>
+          <p class="detail-lead">SR-6iA/C와 좌·우 니들 그리퍼로 두 원물을 배치하고, 충돌·중력·마찰만으로 소형 컨베이어에서 WAITE, MEMORY와 EGV까지 이어지는 작업 셀을 검증했습니다.</p>
           <dl class="project-meta">
-            <div><dt>Role</dt><dd>Simulation · Scenario</dd></div>
-            <div><dt>Robot</dt><dd>SR-6iA · CRX-30iA</dd></div>
-            <div><dt>Engine</dt><dd>Isaac Sim 5.0</dd></div>
-            <div><dt>Control</dt><dd>Action Graph · Python · ROS2</dd></div>
+            <div><dt>Role</dt><dd>Scenario · Physics · State</dd></div>
+            <div><dt>Robot</dt><dd>FANUC SR-6iA/C</dd></div>
+            <div><dt>Engine</dt><dd>Isaac Sim 5.0 · PhysX</dd></div>
+            <div><dt>Validation</dt><dd>Headless · Seed · Cycle checks</dd></div>
           </dl>
         </div>
         <figure class="detail-media">
-          <video controls muted playsinline preload="metadata" poster="/img/video/isaac-sim-workcell-poster.png" aria-label="Isaac Sim 로봇 작업 셀 시뮬레이션 영상">
-            <source src="/img/video/isaac-sim-workcell.mp4" type="video/mp4">
-            브라우저가 영상을 지원하지 않습니다. <a href="/img/video/isaac-sim-workcell.mp4">영상 파일 열기</a>
+          <video controls muted playsinline preload="metadata" poster="/img/video/food-robot-poster.png" aria-label="Isaac Sim 비정형 원물 이중 파지와 컨베이어 이송 영상">
+            <source src="/img/video/Food_robot.mp4" type="video/mp4">
+            브라우저가 영상을 지원하지 않습니다. <a href="/img/video/Food_robot.mp4">영상 파일 열기</a>
           </video>
-          <figcaption>Isaac Sim에서 구성한 파지·이송 작업 셀 시뮬레이션</figcaption>
+          <figcaption>두 원물의 파지·배치와 하류 컨베이어 이송 시나리오</figcaption>
         </figure>
       </div>
     </section>
 
     <nav class="project-toc" aria-label="프로젝트 상세 메뉴">
-      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">결과</a>
+      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">검증 결과</a>
     </nav>
 
     <section id="overview" class="detail-section">
       <div class="detail-section-heading"><span>01</span><h2>프로젝트 개요</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>문제 정의</h3><p>정형화된 박스를 기준으로 한 동일한 파지 조건만으로는 원형·중공 구조나 외형이 일정하지 않은 물체를 안정적으로 다루기 어렵습니다.</p></article>
-        <article class="detail-card"><h3>검증 목표</h3><p>실제 설비를 구성하기 전에 물체별 충돌 형상, 강체 특성, 그리퍼 접촉과 로봇 이동 경로를 조정하며 작업 가능성을 검토했습니다.</p></article>
+        <article class="detail-card"><h3>문제</h3><p>원물의 시작 위치가 달라지고 두께가 얇아 파지 오차와 충돌면 통과가 발생했습니다. 또한 로봇이 하류 이송이 끝날 때까지 기다리는 순차 구조에서는 컨베이어가 비어 있어도 다음 원물을 처리할 수 없었습니다.</p></article>
+        <article class="detail-card"><h3>접근</h3><p>원물 쌍마다 독립 상태를 두고 로봇 동작과 하류 이송을 분리했습니다. 배치 이후에는 위치를 직접 변경하지 않고 동적 리지드 바디, Surface Velocity, 충돌과 마찰로만 이동하도록 구성했습니다.</p></article>
       </div>
     </section>
 
     <section id="role" class="detail-section">
       <div class="detail-section-heading"><span>02</span><h2>담당 범위</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>작업 셀 구성</h3><ul><li>로봇, 컨베이어, 그리퍼와 대상 물체 배치</li><li>STP·USD 기반 로봇 및 설비 자산 검토</li><li>충돌 형상과 Rigid Body 속성 조정</li></ul></article>
-        <article class="detail-card"><h3>동작 시나리오</h3><ul><li>컨베이어 공급부터 Pick-and-Place까지 순서 구성</li><li>Action Graph와 standalone Python 상태 전이 구현</li><li>ROS2 제어 흐름 연결 및 반복 동작 점검</li></ul></article>
+        <article class="detail-card"><h3>로봇·그리퍼 동작</h3><ul><li>랜덤 원물 위치와 좌·우 니들 그리퍼 정렬</li><li>FixedJoint 기반 이중 파지와 물리 해제</li><li>접근·파지·이송·배치 단계와 자세 검증</li></ul></article>
+        <article class="detail-card"><h3>컨베이어·검증 구조</h3><ul><li>Surface Velocity 기반 소형·WAITE·MEMORY·EGV 이송</li><li>원물 쌍별 비동기 상태와 재사용 대기 조건</li><li>headless, 최대 사이클과 난수 시드 실행 옵션</li></ul></article>
       </div>
     </section>
 
     <section id="architecture" class="detail-section">
-      <div class="detail-section-heading"><span>03</span><h2>시뮬레이션 아키텍처</h2></div>
-      <ol class="architecture-flow" aria-label="로봇 작업 셀 시뮬레이션 처리 흐름">
-        <li><strong>Robot Assets</strong><span>로봇 · 그리퍼 · 컨베이어</span></li>
-        <li><strong>Physics Scene</strong><span>강체 · 충돌 · 접촉 조건</span></li>
-        <li><strong>State Control</strong><span>Action Graph · Python</span></li>
-        <li><strong>Manipulation</strong><span>접근 · 파지 · 이송 · 배치</span></li>
-        <li><strong>ROS2 Flow</strong><span>제어 연결 · 상태 점검</span></li>
+      <div class="detail-section-heading"><span>03</span><h2>작업 셀 아키텍처</h2></div>
+      <ol class="architecture-flow" aria-label="비정형 원물 파지 및 이송 처리 흐름">
+        <li><strong>Random Source</strong><span>재현 가능한 원물 위치</span></li>
+        <li><strong>Dual Grip</strong><span>Needle · FixedJoint</span></li>
+        <li><strong>Physical Drop</strong><span>Gravity · Collision</span></li>
+        <li><strong>Async Pipeline</strong><span>Small · WAITE · MEMORY · EGV</span></li>
+        <li><strong>Validation</strong><span>Landing · Travel · Region</span></li>
       </ol>
-      <p class="architecture-note">물체 형상별로 Physics Scene의 충돌 범위와 접촉 조건을 조정하고, 동일한 상태 제어 흐름에서 동작을 비교하는 구조입니다.</p>
+      <p class="architecture-note">이전 원물이 하류로 이동하는 동안 로봇은 비어 있는 다음 소형 컨베이어에 새 원물 쌍을 배치합니다. 같은 쌍을 재사용할 때만 해당 쌍의 완료 여부를 확인합니다.</p>
     </section>
 
     <section id="implementation" class="detail-section">
       <div class="detail-section-heading"><span>04</span><h2>핵심 구현</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>Tire</h3><p>원형·중공 구조에서 접촉 지점과 파지 자세가 안정적으로 유지되는지 검토했습니다.</p></article>
-        <article class="detail-card"><h3>Food</h3><p>종류와 취급 조건이 다른 식품을 대상으로 공급과 이송 공정 시나리오를 구성했습니다.</p></article>
-        <article class="detail-card"><h3>Irregular Object</h3><p>외형이 일정하지 않은 대상의 충돌 범위와 파지 동작을 반복적으로 조정했습니다.</p></article>
-        <article class="detail-card"><h3>State Machine</h3><p>대기, 접근, 파지, 이송과 배치 단계가 순서대로 전환되도록 동작 흐름을 구성했습니다.</p></article>
+        <article class="detail-card"><h3>접촉 기반 컨베이어</h3><p>투명 충돌면에 PhysX Surface Velocity를 적용했습니다. 해제된 10g 원물은 약 35mm를 실제로 낙하하고, 벨트와의 마찰로 이동하므로 충돌과 착지 조건을 함께 확인할 수 있습니다.</p></article>
+        <article class="detail-card"><h3>비동기 상태 파이프라인</h3><p>각 원물 쌍을 small, WAITE, MEMORY, EGV 단계로 추적합니다. 특정 라인에 실제 착지한 것을 확인한 뒤 다음 벨트를 시작해 고정 시간만 기다리는 흐름을 줄였습니다.</p></article>
+        <article class="detail-card"><h3>재현 가능한 실행</h3><p><code>--seed</code>로 같은 시작 위치를 재현하고 <code>--max-cycles</code>와 <code>--headless</code>로 제한된 반복 검증을 실행합니다. 일시정지 중에는 물리와 단계 카운터를 함께 멈춰 재개 시 상태를 유지합니다.</p></article>
+        <article class="detail-card"><h3>성공 조건 판정</h3><p>컨베이어 배치 오차, 실제 낙하 거리, 착지 후 수직 안정성, 최소 이동 거리와 최종 EGV 영역 도착을 코드에서 확인합니다. 허용 범위를 벗어나면 해당 사이클을 실패로 종료합니다.</p></article>
       </div>
     </section>
 
     <section id="troubleshooting" class="detail-section">
-      <div class="detail-section-heading"><span>05</span><h2>문제 해결 관점</h2></div>
+      <div class="detail-section-heading"><span>05</span><h2>문제 해결</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>형상별 접촉 차이</h3><p>대상 물체의 외형과 중심이 달라 동일한 그리퍼 설정을 그대로 적용하기 어려웠습니다. 물체별 충돌 형상과 접촉 조건을 분리해 조정했습니다.</p></article>
-        <article class="detail-card"><h3>동작과 물리 조건의 연결</h3><p>상태 전이 순서만 맞아도 접촉과 강체 설정이 부정확하면 이송이 불안정해질 수 있어 동작 로직과 Physics 설정을 함께 검증했습니다.</p></article>
+        <article class="detail-card"><h3>얇은 원물의 충돌면 통과</h3><p>12mm 높이 원물이 계단식 컨베이어 경계에서 터널링하는 현상을 확인했습니다. 동작 타이밍은 60Hz로 유지하되 물리 substep을 두 번 수행해 120Hz로 계산하고 실제 경계에는 충돌 스토퍼를 추가했습니다.</p></article>
+        <article class="detail-card"><h3>속도 단축 시 자세 오차</h3><p>주요 동작을 기존 120프레임보다 빠르게 줄여 비교했습니다. 15프레임에서는 반복 중 허용 자세를 벗어났고, 문서화된 검증에서는 20프레임이 서로 다른 난수 조건 12사이클을 통과한 최소값이었습니다.</p></article>
+        <article class="detail-card"><h3>순차 처리의 유휴 시간</h3><p>EGV 이송이 끝날 때까지 전체 루프가 막히던 구조를 원물 쌍별 job으로 분리했습니다. 로봇과 하류 이송을 동시에 진행하되 아직 완료되지 않은 쌍만 재사용을 기다립니다.</p></article>
+        <article class="detail-card"><h3>Pause 이후 상태 손실</h3><p>타임라인이 멈춘 동안 렌더링만 유지하고 물리 step과 상태 카운터를 진행하지 않았습니다. 재생 시 중단한 단계부터 이어져 디버깅 중 상태가 건너뛰지 않습니다.</p></article>
       </div>
     </section>
 
     <section id="results" class="detail-section">
-      <div class="detail-section-heading"><span>06</span><h2>결과와 다음 검증</h2></div>
+      <div class="detail-section-heading"><span>06</span><h2>검증 결과와 한계</h2></div>
       <div class="detail-callout">
-        <h3>한 가지 물체가 아닌 다양한 형상을 기준으로 작업 셀을 검토했습니다.</h3>
-        <p>다음 단계에서는 형상별 반복 횟수, 파지 성공 기준, 실패 유형과 조정 전후 비교값을 추가해 시뮬레이션 결과를 수치로 보여줄 예정입니다.</p>
+        <h3>물리 정확도, 처리량과 재현성을 하나의 시나리오에서 비교했습니다.</h3>
+        <p>문서화된 headless 검증에서 20프레임 조건은 서로 다른 난수 시드의 12사이클에서 파지와 배치 조건을 통과했고, 하류 이송과 다음 pick-and-place를 동시에 진행했습니다. 단, 이는 자동 생성된 테스트 리포트가 아닌 실행 기록이며 실제 ROS2 토픽은 아직 연결되지 않았습니다. 현재는 분리한 명령 경계를 테스트 이벤트가 대신합니다.</p>
       </div>
     </section>
 
     <nav class="project-pagination" aria-label="다른 프로젝트">
-      <a href="/projects/robot-dashboard/"><span>Previous project</span>← 로봇 제어·모니터링</a>
-      <a href="/projects/puma-robot/"><span>Next project</span>PUMA 3-DOF →</a>
+      <a href="/projects/robot-dashboard/"><span>Previous project</span>← 계량·설비 통합</a>
+      <a href="/projects/pointcloud-registration/"><span>Next project</span>포인트클라우드 정합 →</a>
     </nav>
   </main>
   <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#top">맨 위로 ↑</a></footer>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="박준렬의 로봇 제어, 시뮬레이션, 시스템 통합 프로젝트를 소개합니다.">
+  <meta name="description" content="박준렬의 산업용 장비 통합, Isaac Sim 물리 검증과 3D 센서 처리 프로젝트를 소개합니다.">
   <title>프로젝트 | 박준렬 포트폴리오</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/project.css">
@@ -20,49 +20,49 @@
   <main>
     <section class="page-hero">
       <p class="breadcrumb"><a href="/">홈</a><span>/</span><span>프로젝트</span></p>
-      <p class="eyebrow">Project archive</p>
-      <h1>만든 결과보다<br>해결한 과정을 보여줍니다.</h1>
-      <p class="page-lead">프로젝트별 담당 범위, 시스템 아키텍처, 핵심 구현과 문제 해결 과정을 상세 페이지로 나누었습니다.</p>
+      <p class="eyebrow">Selected engineering work</p>
+      <h1>무엇을 만들었는지보다<br>어떻게 실패를 줄였는지.</h1>
+      <p class="page-lead">각 프로젝트를 문제, 담당 범위, 설계 결정, 해결 과정, 검증 근거와 현재 한계 순서로 정리했습니다.</p>
     </section>
     <section class="project-index-grid" aria-label="프로젝트 목록">
       <article class="project-index-card">
-        <img src="/img/r-project.png" alt="로봇과 PLC 상태를 표시하는 실시간 운영 대시보드" loading="lazy">
+        <img src="/img/integration-architecture.svg" alt="계량기, PLC와 AMR 데이터를 연결하는 운영 시스템 아키텍처" loading="lazy">
         <div class="project-index-copy">
-          <p class="project-type">Flagship · Robot control</p>
-          <h2>로봇 제어 및 모니터링 웹 시스템</h2>
-          <p>ROS2, FastAPI, PostgreSQL과 PLC를 연결해 작업과 설비 상태를 실시간으로 확인하는 운영 시스템입니다.</p>
-          <ul class="tags"><li>ROS2</li><li>FastAPI</li><li>WebSocket</li><li>PLC</li></ul>
+          <p class="project-type">Flagship · Industrial integration</p>
+          <h2>로봇 셀 계량·설비 통합 운영 시스템</h2>
+          <p>RS-232 장비 프레임부터 PLC 이벤트와 AMR 메시지까지 검증해 ROS2와 운영 화면으로 연결했습니다.</p>
+          <ul class="tags"><li>ROS2</li><li>RS-232</li><li>PLC</li><li>UDP / HTTP</li></ul>
           <a class="project-index-link" href="/projects/robot-dashboard/">상세 보기 →</a>
         </div>
       </article>
       <article class="project-index-card">
-        <img src="/img/video/isaac-sim-workcell-poster.png" alt="Isaac Sim 산업용 로봇 작업 셀" loading="lazy">
+        <img src="/img/video/food-robot-poster.png" alt="Isaac Sim 비정형 원물 이중 파지와 컨베이어 셀" loading="lazy">
         <div class="project-index-copy">
-          <p class="project-type">Core · Isaac Sim</p>
-          <h2>다양한 형상에 대응하는 로봇 작업 셀</h2>
-          <p>타이어, 음식, 비정형 물체의 형상과 접촉 조건을 고려해 파지와 이송 흐름을 검증한 시뮬레이션입니다.</p>
-          <ul class="tags"><li>Isaac Sim 5.0</li><li>Python</li><li>ROS2</li></ul>
+          <p class="project-type">Core · Isaac Sim · Physics validation</p>
+          <h2>비정형 원물 이중 파지·비동기 이송</h2>
+          <p>물리 기반 컨베이어, 원물 쌍별 상태 추적과 headless 검증으로 작업 셀의 안정성과 처리 흐름을 개선했습니다.</p>
+          <ul class="tags"><li>Isaac Sim 5.0</li><li>PhysX</li><li>Python</li><li>Headless</li></ul>
           <a class="project-index-link" href="/projects/isaac-workcell/">상세 보기 →</a>
         </div>
       </article>
       <article class="project-index-card">
-        <img src="/img/puma_img.png" alt="PUMA 3-DOF 웹 제어 시스템" loading="lazy">
+        <img src="/img/pointcloud-pipeline.svg" alt="RANSAC, ICP와 포즈 그래프 기반 포인트클라우드 정합 파이프라인" loading="lazy">
         <div class="project-index-copy">
-          <p class="project-type">Core · ROS2</p>
-          <h2>3-DOF PUMA 로봇 제어 시스템</h2>
-          <p>URDF/Xacro 모델부터 ROS2 관절 제어, 상태 로깅과 웹 브리지까지 하나의 흐름으로 구성했습니다.</p>
-          <ul class="tags"><li>ROS2 Humble</li><li>URDF</li><li>RViz</li></ul>
-          <a class="project-index-link" href="/projects/puma-robot/">상세 보기 →</a>
+          <p class="project-type">Core · 3D perception</p>
+          <h2>포인트클라우드 정합·병합 파이프라인</h2>
+          <p>여러 촬영 위치의 PCD를 공통 좌표계로 변환하고 RANSAC, ICP와 전역 최적화로 병합합니다.</p>
+          <ul class="tags"><li>Open3D</li><li>TF</li><li>RANSAC</li><li>ICP</li></ul>
+          <a class="project-index-link" href="/projects/pointcloud-registration/">상세 보기 →</a>
         </div>
       </article>
       <article class="project-index-card">
-        <img src="/img/video/food-robot-poster.png" alt="Isaac Sim 비정형 음식 원물 자동화 작업 셀" loading="lazy">
+        <img src="/img/puma_img.png" alt="PUMA 3-DOF 관절 명령과 RViz 시각화 화면" loading="lazy">
         <div class="project-index-copy">
-          <p class="project-type">In progress · Food automation</p>
-          <h2>비정형 음식 원물 자동화</h2>
-          <p>원물 공급부터 접근, 파지, 이송과 배출까지 실제 공정 적용 전 동작 가능성과 간섭을 검토합니다.</p>
-          <ul class="tags"><li>Isaac Sim</li><li>Collision</li><li>Robot Cell</li></ul>
-          <a class="project-index-link" href="/projects/food-automation/">상세 보기 →</a>
+          <p class="project-type">Foundation · ROS2 · Web bridge</p>
+          <h2>PUMA 관절 명령·시각화 데모</h2>
+          <p>URDF/Xacro 모델, ROS2 토픽과 FastAPI WebSocket을 연결하고 잘못된 관절 명령을 공통 검증합니다.</p>
+          <ul class="tags"><li>ROS2 Humble</li><li>FastAPI</li><li>URDF</li><li>pytest</li></ul>
+          <a class="project-index-link" href="/projects/puma-robot/">상세 보기 →</a>
         </div>
       </article>
     </section>

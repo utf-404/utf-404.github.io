@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">로봇 셀 계량·설비 통합 아키텍처</title>
+  <desc id="desc">RS-232 계량기와 PLC 데이터가 ROS 2 및 인터페이스 계층을 거쳐 운영 화면과 이벤트 로그로 전달되는 구조</desc>
+  <rect width="1200" height="675" fill="#171719"/>
+  <path d="M0 560C235 470 377 650 620 555C830 473 1018 493 1200 405V675H0Z" fill="#222226"/>
+  <text x="72" y="88" fill="#f4f1e9" font-family="Arial, sans-serif" font-size="22" font-weight="700">ROBOT CELL INTEGRATION</text>
+  <text x="72" y="126" fill="#aaa69e" font-family="Arial, sans-serif" font-size="17">Device data → validated events → operator visibility</text>
+
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(72 208)">
+      <rect width="190" height="168" rx="18" fill="#25252a" stroke="#7aa2ff" stroke-width="2"/>
+      <circle cx="36" cy="38" r="11" fill="#bde52f"/>
+      <text x="58" y="45" fill="#f4f1e9" font-size="18" font-weight="700">FIELD DEVICES</text>
+      <text x="28" y="92" fill="#c7c4bd" font-size="16">CAS CI-600A</text>
+      <text x="28" y="121" fill="#c7c4bd" font-size="16">PLC · AMR</text>
+      <text x="28" y="150" fill="#7aa2ff" font-size="14">RS-232 · I/O</text>
+    </g>
+
+    <path d="M276 292H342" stroke="#7aa2ff" stroke-width="3"/>
+    <path d="M334 282L346 292L334 302" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+
+    <g transform="translate(358 208)">
+      <rect width="210" height="168" rx="18" fill="#25252a" stroke="#7aa2ff" stroke-width="2"/>
+      <text x="28" y="45" fill="#f4f1e9" font-size="18" font-weight="700">NORMALIZATION</text>
+      <text x="28" y="92" fill="#c7c4bd" font-size="16">22-byte parser</text>
+      <text x="28" y="121" fill="#c7c4bd" font-size="16">schema validation</text>
+      <text x="28" y="150" fill="#7aa2ff" font-size="14">state · edge · dedupe</text>
+    </g>
+
+    <path d="M582 292H648" stroke="#7aa2ff" stroke-width="3"/>
+    <path d="M640 282L652 292L640 302" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+
+    <g transform="translate(664 208)">
+      <rect width="196" height="168" rx="18" fill="#25252a" stroke="#7aa2ff" stroke-width="2"/>
+      <text x="28" y="45" fill="#f4f1e9" font-size="18" font-weight="700">INTERFACES</text>
+      <text x="28" y="92" fill="#c7c4bd" font-size="16">ROS 2 topics</text>
+      <text x="28" y="121" fill="#c7c4bd" font-size="16">UDP · HTTP</text>
+      <text x="28" y="150" fill="#7aa2ff" font-size="14">IF_RN_102–104</text>
+    </g>
+
+    <path d="M874 292H940" stroke="#7aa2ff" stroke-width="3"/>
+    <path d="M932 282L944 292L932 302" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+
+    <g transform="translate(956 208)">
+      <rect width="172" height="168" rx="18" fill="#bde52f" stroke="#f4f1e9" stroke-width="2"/>
+      <text x="24" y="45" fill="#181818" font-size="18" font-weight="700">OPERATIONS</text>
+      <text x="24" y="92" fill="#303224" font-size="16">web status</text>
+      <text x="24" y="121" fill="#303224" font-size="16">event history</text>
+      <text x="24" y="150" fill="#303224" font-size="14">camera · CSV</text>
+    </g>
+
+    <g transform="translate(72 470)">
+      <rect width="286" height="86" rx="14" fill="#25252a" stroke="#3b3b3f"/>
+      <text x="22" y="34" fill="#7aa2ff" font-size="13" font-weight="700">FRAME SAFETY</text>
+      <text x="22" y="62" fill="#e7e4dc" font-size="16">length · delimiter · status bits</text>
+    </g>
+    <g transform="translate(382 470)">
+      <rect width="326" height="86" rx="14" fill="#25252a" stroke="#3b3b3f"/>
+      <text x="22" y="34" fill="#7aa2ff" font-size="13" font-weight="700">EVENT INTEGRITY</text>
+      <text x="22" y="62" fill="#e7e4dc" font-size="16">rising edge · delayed sampling</text>
+    </g>
+    <g transform="translate(732 470)">
+      <rect width="396" height="86" rx="14" fill="#25252a" stroke="#3b3b3f"/>
+      <text x="22" y="34" fill="#7aa2ff" font-size="13" font-weight="700">OPERABILITY</text>
+      <text x="22" y="62" fill="#e7e4dc" font-size="16">sample sender · status API · logs</text>
+    </g>
+  </g>
+</svg>

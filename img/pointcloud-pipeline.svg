@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">멀티뷰 포인트클라우드 정합 파이프라인</title>
+  <desc id="desc">서로 다른 촬영 위치의 점군에 TF를 적용하고 RANSAC, ICP, 포즈 그래프 최적화를 거쳐 하나의 점군으로 병합하는 과정</desc>
+  <rect width="1200" height="675" fill="#171719"/>
+  <text x="72" y="82" fill="#f4f1e9" font-family="Arial, sans-serif" font-size="22" font-weight="700">MULTI-VIEW POINT CLOUD REGISTRATION</text>
+  <text x="72" y="120" fill="#aaa69e" font-family="Arial, sans-serif" font-size="17">TF initialization → coarse alignment → refinement → global merge</text>
+
+  <g fill="#7aa2ff" opacity=".85">
+    <circle cx="113" cy="234" r="5"/><circle cx="142" cy="213" r="5"/><circle cx="178" cy="242" r="5"/><circle cx="211" cy="202" r="5"/>
+    <circle cx="125" cy="282" r="5"/><circle cx="163" cy="268" r="5"/><circle cx="199" cy="291" r="5"/><circle cx="232" cy="262" r="5"/>
+    <circle cx="151" cy="330" r="5"/><circle cx="190" cy="318" r="5"/><circle cx="224" cy="343" r="5"/>
+  </g>
+  <g fill="#bde52f" opacity=".85">
+    <circle cx="148" cy="193" r="5"/><circle cx="181" cy="218" r="5"/><circle cx="222" cy="187" r="5"/><circle cx="246" cy="230" r="5"/>
+    <circle cx="158" cy="250" r="5"/><circle cx="205" cy="251" r="5"/><circle cx="249" cy="278" r="5"/>
+    <circle cx="173" cy="304" r="5"/><circle cx="210" cy="309" r="5"/><circle cx="256" cy="322" r="5"/>
+  </g>
+  <text x="103" y="395" fill="#f4f1e9" font-family="Arial, sans-serif" font-size="17" font-weight="700">CAPTURE SETS</text>
+  <text x="100" y="423" fill="#aaa69e" font-family="Arial, sans-serif" font-size="14">PCD + camera TF</text>
+
+  <g font-family="Arial, sans-serif">
+    <path d="M286 278H348" stroke="#7aa2ff" stroke-width="3"/><path d="M340 268L352 278L340 288" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+    <g transform="translate(366 190)">
+      <rect width="178" height="176" rx="18" fill="#25252a" stroke="#3b3b3f" stroke-width="2"/>
+      <text x="24" y="42" fill="#7aa2ff" font-size="13" font-weight="700">01 · PREPROCESS</text>
+      <text x="24" y="86" fill="#f4f1e9" font-size="17" font-weight="700">TF transform</text>
+      <text x="24" y="119" fill="#c7c4bd" font-size="15">voxel downsample</text>
+      <text x="24" y="150" fill="#c7c4bd" font-size="15">normal · FPFH</text>
+    </g>
+    <path d="M558 278H620" stroke="#7aa2ff" stroke-width="3"/><path d="M612 268L624 278L612 288" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+    <g transform="translate(638 190)">
+      <rect width="194" height="176" rx="18" fill="#25252a" stroke="#3b3b3f" stroke-width="2"/>
+      <text x="24" y="42" fill="#7aa2ff" font-size="13" font-weight="700">02 · REGISTER</text>
+      <text x="24" y="86" fill="#f4f1e9" font-size="17" font-weight="700">RANSAC coarse</text>
+      <text x="24" y="119" fill="#c7c4bd" font-size="15">point-to-plane ICP</text>
+      <text x="24" y="150" fill="#c7c4bd" font-size="15">point fallback</text>
+    </g>
+    <path d="M846 278H908" stroke="#7aa2ff" stroke-width="3"/><path d="M900 268L912 278L900 288" fill="none" stroke="#7aa2ff" stroke-width="3"/>
+    <g transform="translate(926 190)">
+      <rect width="202" height="176" rx="18" fill="#bde52f" stroke="#f4f1e9" stroke-width="2"/>
+      <text x="24" y="42" fill="#303224" font-size="13" font-weight="700">03 · OPTIMIZE</text>
+      <text x="24" y="86" fill="#181818" font-size="17" font-weight="700">pose graph</text>
+      <text x="24" y="119" fill="#303224" font-size="15">outlier removal</text>
+      <text x="24" y="150" fill="#303224" font-size="15">PLY export</text>
+    </g>
+
+    <g transform="translate(72 492)">
+      <rect width="1056" height="94" rx="16" fill="#222226" stroke="#3b3b3f"/>
+      <text x="26" y="38" fill="#7aa2ff" font-size="13" font-weight="700">VERIFICATION OUTPUT</text>
+      <text x="26" y="69" fill="#f4f1e9" font-size="17">pair fitness · inlier RMSE · merged PLY · optional Poisson mesh</text>
+    </g>
+  </g>
+</svg>

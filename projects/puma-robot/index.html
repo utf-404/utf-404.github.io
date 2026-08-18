@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="URDF/Xacro 로봇 모델과 ROS2 관절 제어, RViz, 웹 브리지를 연결한 PUMA 3-DOF 프로젝트입니다.">
-  <title>PUMA 3-DOF 로봇 제어 시스템 | 박준렬</title>
+  <meta name="description" content="URDF/Xacro 모델, ROS2 관절 명령과 FastAPI WebSocket을 연결한 PUMA 3-DOF 시각화 데모입니다.">
+  <title>PUMA ROS2–Web 관절 명령 시각화 | 박준렬</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/project.css">
 </head>
@@ -19,88 +19,88 @@
   </header>
   <main>
     <section class="detail-hero">
-      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>PUMA 3-DOF</span></p>
+      <p class="breadcrumb"><a href="/">홈</a><span>/</span><a href="/projects/">프로젝트</a><span>/</span><span>PUMA ROS2–Web</span></p>
       <div class="detail-hero-grid">
         <div>
-          <p class="eyebrow">Core · ROS2 · Robot model</p>
-          <h1>3-DOF PUMA 로봇 제어 시스템</h1>
-          <p class="detail-lead">로봇 모델링부터 관절 명령과 상태, RViz 시각화와 웹 UI까지 ROS2 기반 제어 흐름을 하나의 실행 구조로 연결했습니다.</p>
+          <p class="eyebrow">Foundation · ROS2 · Web bridge</p>
+          <h1>PUMA 관절 명령·시각화 데모</h1>
+          <p class="detail-lead">3-DOF 로봇 모델, ROS2 관절 명령과 FastAPI WebSocket을 하나의 실행 흐름으로 연결하고 웹 입력을 공통 검증하는 기반 프로젝트입니다.</p>
           <dl class="project-meta">
             <div><dt>Platform</dt><dd>Ubuntu 22.04 · ROS2 Humble</dd></div>
             <div><dt>Model</dt><dd>URDF · Xacro</dd></div>
-            <div><dt>Interface</dt><dd>Topic · WebSocket</dd></div>
-            <div><dt>Visualization</dt><dd>RViz2 · Web UI</dd></div>
+            <div><dt>Interface</dt><dd>Topic · FastAPI · WebSocket</dd></div>
+            <div><dt>Evidence</dt><dd>5 command validation cases</dd></div>
           </dl>
           <div class="project-actions"><a class="button primary" href="https://github.com/utf-404/3DOF-Puma_Robot" target="_blank" rel="noreferrer">GitHub Repository ↗</a></div>
         </div>
         <figure class="detail-media">
-          <img src="/img/puma_img.png" alt="관절 제어 화면과 RViz 로봇 모델을 표시하는 PUMA 3-DOF 시스템">
-          <figcaption>웹 관절 제어와 RViz 로봇 상태 시각화</figcaption>
+          <img src="/img/puma_img.png" alt="관절 명령 화면과 RViz PUMA 모델을 함께 표시한 데모">
+          <figcaption>웹 관절 명령과 ROS2 모델 상태 시각화</figcaption>
         </figure>
       </div>
     </section>
 
     <nav class="project-toc" aria-label="프로젝트 상세 메뉴">
-      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">결과</a>
+      <a href="#overview">개요</a><a href="#role">담당 범위</a><a href="#architecture">아키텍처</a><a href="#implementation">핵심 구현</a><a href="#troubleshooting">문제 해결</a><a href="#results">검증 결과</a>
     </nav>
 
     <section id="overview" class="detail-section">
       <div class="detail-section-heading"><span>01</span><h2>프로젝트 개요</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>목표</h3><p>ROS2에서 로봇 모델을 시각화하는 단계에 그치지 않고, 웹에서 입력한 관절 명령이 제어 노드와 RViz 상태까지 이어지는 전체 흐름을 구성했습니다.</p></article>
-        <article class="detail-card"><h3>실행 구조</h3><p>하나의 launch 파일로 robot_state_publisher, 관절 컨트롤러, 웹 브리지, 정적 TF와 RViz2가 함께 실행되도록 패키지를 구성했습니다.</p></article>
+        <article class="detail-card"><h3>목표</h3><p>웹에서 입력한 세 관절의 목표값을 ROS2 메시지로 전달하고, 같은 명령 상태를 RViz와 웹에서 확인하는 최소 통합 구조를 구성했습니다.</p></article>
+        <article class="detail-card"><h3>범위</h3><p>이 프로젝트는 실제 모터나 <code>ros2_control</code>을 구동하는 폐루프 제어기가 아닙니다. 명령 검증, 토픽 연결, URDF 상태 반영과 웹 브리지의 인터페이스를 검증하는 데모입니다.</p></article>
       </div>
     </section>
 
     <section id="role" class="detail-section">
       <div class="detail-section-heading"><span>02</span><h2>담당 범위</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>로봇 모델</h3><ul><li>3-DOF PUMA 타입 링크와 관절 구조 작성</li><li>URDF/Xacro 분리 및 mesh·frame 경로 구성</li><li>관절 범위와 world–base_link TF 설정</li></ul></article>
-        <article class="detail-card"><h3>제어와 웹 연동</h3><ul><li>관절 명령 및 상태 토픽 연결</li><li>웹 명령과 상태 로그용 WebSocket 구성</li><li>수동·랜덤 모션 및 현재 관절값 UI 구현</li></ul></article>
+        <article class="detail-card"><h3>로봇 모델</h3><ul><li>3-DOF 링크·관절 URDF/Xacro 구성</li><li>mesh 경로, joint limit와 TF 계층 설정</li><li>robot_state_publisher 및 RViz 설정</li></ul></article>
+        <article class="detail-card"><h3>ROS2·웹 연결</h3><ul><li>관절 명령과 명령 상태 토픽 구성</li><li>FastAPI 정적 UI와 두 WebSocket 경로 구현</li><li>공통 입력 검증 함수와 pytest 테스트 작성</li></ul></article>
       </div>
     </section>
 
     <section id="architecture" class="detail-section">
       <div class="detail-section-heading"><span>03</span><h2>시스템 아키텍처</h2></div>
-      <ol class="architecture-flow" aria-label="웹 UI에서 PUMA 로봇 시각화로 이어지는 제어 흐름">
-        <li><strong>Web UI</strong><span>관절 목표값 · 모션 제어</span></li>
-        <li><strong>Web Bridge</strong><span>HTTP · WebSocket</span></li>
-        <li><strong>ROS2 Topics</strong><span>/joint_commands · /joint_states</span></li>
-        <li><strong>PUMA Controller</strong><span>범위 검증 · 상태 발행</span></li>
-        <li><strong>RViz2</strong><span>Robot State 시각화</span></li>
+      <ol class="architecture-flow" aria-label="웹 관절 명령에서 RViz 시각화로 이어지는 흐름">
+        <li><strong>Web UI</strong><span>수동 · 랜덤 · 반복 명령</span></li>
+        <li><strong>FastAPI</strong><span>HTTP · WebSocket</span></li>
+        <li><strong>Validation</strong><span>Length · Type · Limit</span></li>
+        <li><strong>ROS2 Topics</strong><span>joint_commands · joint_states</span></li>
+        <li><strong>RViz2</strong><span>URDF state visualization</span></li>
       </ol>
-      <p class="architecture-note">명령은 `/joint_commands`, 현재 상태는 `/joint_states`를 사용하며, 웹 상태와 로그는 별도 WebSocket 경로로 전달합니다.</p>
+      <p class="architecture-note">제어 노드와 웹 브리지가 같은 검증 함수를 사용해 웹과 ROS2 어느 경로에서 들어와도 동일한 관절 제한을 적용합니다.</p>
     </section>
 
     <section id="implementation" class="detail-section">
       <div class="detail-section-heading"><span>04</span><h2>핵심 구현</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>관절 명령 검증</h3><p>세 관절의 목표값 개수와 형식을 검사하고, 허용 범위를 벗어난 값은 관절 제한값 안으로 보정하도록 구성했습니다.</p></article>
-        <article class="detail-card"><h3>실시간 상태 표시</h3><p>ROS2에서 발행되는 현재 관절값을 웹 UI와 RViz에 반영해 명령과 실제 상태 흐름을 함께 확인할 수 있습니다.</p></article>
-        <article class="detail-card"><h3>통합 실행</h3><p>필요한 노드와 웹 서버를 개별 실행하지 않아도 launch 파일 하나로 전체 시스템을 시작할 수 있도록 구성했습니다.</p></article>
-        <article class="detail-card"><h3>동작 모드</h3><p>슬라이더 수동 제어, 제한 범위 내 랜덤 명령, 반복 모션 시작·정지 기능으로 제어 흐름을 점검할 수 있습니다.</p></article>
+        <article class="detail-card"><h3>공통 명령 검증</h3><p>세 개의 유한한 숫자인지 확인하고 관절별 허용 범위를 벗어난 값은 제한값으로 보정합니다. 개수 부족, NaN과 문자열 입력은 ROS 메시지로 발행하지 않습니다.</p></article>
+        <article class="detail-card"><h3>명령·로그 소켓 분리</h3><p><code>/ws</code>는 관절 명령을 받고 <code>/ws_log</code>는 상태와 로그를 전달합니다. UI 입력 경로와 관찰 경로를 분리해 메시지 역할을 명확히 했습니다.</p></article>
+        <article class="detail-card"><h3>통합 실행</h3><p>launch 파일 하나로 robot_state_publisher, 정적 TF, 제어 노드, 웹 브리지와 RViz를 실행합니다. 각 노드를 수동으로 시작할 때 생기는 설정 차이를 줄였습니다.</p></article>
+        <article class="detail-card"><h3>테스트 가능한 순수 로직</h3><p>ROS2 런타임과 무관한 입력 검증을 별도 함수로 분리했습니다. 정상값, 제한값 보정과 세 종류의 잘못된 입력을 포함한 5개 테스트 케이스를 저장소에 포함했습니다.</p></article>
       </div>
     </section>
 
     <section id="troubleshooting" class="detail-section">
-      <div class="detail-section-heading"><span>05</span><h2>문제 해결 관점</h2></div>
+      <div class="detail-section-heading"><span>05</span><h2>문제 해결</h2></div>
       <div class="detail-grid">
-        <article class="detail-card"><h3>모델 경로와 프레임</h3><p>URDF/Xacro의 mesh 경로와 frame 연결이 어긋나면 RViz에서 모델이 누락되거나 잘못 배치되므로 ROS2 package path와 TF 계층을 함께 점검했습니다.</p></article>
-        <article class="detail-card"><h3>웹 입력의 안전한 전달</h3><p>웹에서 잘못된 개수나 형식의 명령이 들어오는 경우를 거부하고, 관절 제한을 적용해 제어 노드가 유효한 값만 처리하도록 구성했습니다.</p></article>
+        <article class="detail-card"><h3>검증 로직 불일치</h3><p>웹과 ROS 노드에서 관절 제한을 따로 처리하면 결과가 달라질 수 있습니다. 공통 모듈로 이동해 두 경로가 같은 규칙과 오류 메시지를 사용하도록 했습니다.</p></article>
+        <article class="detail-card"><h3>프레임·자산 경로</h3><p>RViz에서 모델이 누락되거나 위치가 어긋나는 문제를 package share 경로와 world–base_link 정적 TF를 기준으로 정리했습니다.</p></article>
       </div>
     </section>
 
     <section id="results" class="detail-section">
-      <div class="detail-section-heading"><span>06</span><h2>결과와 다음 검증</h2></div>
+      <div class="detail-section-heading"><span>06</span><h2>검증 결과와 한계</h2></div>
       <div class="detail-callout">
-        <h3>Robot model–ROS2 control–Web UI를 하나의 실행 흐름으로 완성했습니다.</h3>
-        <p>저장소에는 요구사항, 실행 방법, ROS 인터페이스와 테스트 명령이 정리되어 있습니다. 다음 단계에서는 자동 테스트 범위와 명령·상태 지연 측정 결과를 상세히 추가할 수 있습니다.</p>
+        <h3>Robot model–ROS2 topic–WebSocket 경계를 작게 연결하고 입력 계약을 테스트했습니다.</h3>
+        <p>저장소에서 정상 명령, joint limit 보정과 잘못된 입력 거부를 5개 테스트 케이스로 확인할 수 있습니다. 화면의 현재값은 실제 엔코더 피드백이 아니라 제어 노드가 승인한 명령을 JointState로 반영한 값이며, 실제 하드웨어 제어 경험으로 표현하지 않습니다.</p>
       </div>
     </section>
 
     <nav class="project-pagination" aria-label="다른 프로젝트">
-      <a href="/projects/isaac-workcell/"><span>Previous project</span>← Isaac Sim 작업 셀</a>
-      <a href="/projects/food-automation/"><span>Next project</span>음식 원물 자동화 →</a>
+      <a href="/projects/pointcloud-registration/"><span>Previous project</span>← 포인트클라우드 정합</a>
+      <a href="/projects/"><span>Project archive</span>전체 프로젝트 →</a>
     </nav>
   </main>
   <footer class="site-footer"><p>© 2026 박준렬. Built with HTML, CSS &amp; JavaScript.</p><a href="#top">맨 위로 ↑</a></footer>
